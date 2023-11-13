@@ -1,0 +1,36 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    ft_isalpha.c.test                                  :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: inikulin <inikulin@student.42berlin.d      +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2023/11/13 17:55:39 by inikulin          #+#    #+#              #
+#    Updated: 2023/11/13 18:04:46 by inikulin         ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
+int	ft_isalpha(int c);
+
+void	ft_isalpha_test(void)
+{
+	assert(ft_isalpha('/') == 0);
+	assert(ft_isalpha(':') == 0);
+	assert(ft_isalpha('0') == 0);
+	assert(ft_isalpha('1') == 0);
+	assert(ft_isalpha('9') == 0);
+	assert(ft_isalpha('a') == 1);
+	assert(ft_isalpha('z') == 1);
+	assert(ft_isalpha('A') == 1);
+	assert(ft_isalpha('Z') == 1);
+	assert(ft_isalpha('ẞ') == 0);
+	assert(ft_isalpha('ä') == 0);
+	assert(ft_isalpha('\0') == 0);
+	assert(ft_isalpha('\n') == 0);
+	assert(ft_isalpha('\t') == 0);
+	assert(ft_isalpha('!') == 0);
+	assert(ft_isalpha('@') == 0);
+	assert(ft_isalpha('[') == 0);
+	assert(ft_isalpha('`') == 0);
+	assert(ft_isalpha('{') == 0);
+}

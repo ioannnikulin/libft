@@ -1,0 +1,30 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    main.c.test                                        :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: inikulin <inikulin@student.42berlin.d      +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2023/11/13 21:30:56 by inikulin          #+#    #+#              #
+#    Updated: 2023/11/13 21:33:46 by inikulin         ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
+#include "tests.h"
+#include <stdio.h>
+
+int	main(void)
+{
+	ft_isalpha_test();
+	ft_isdigit_test();
+	ft_isalnum_test();
+	ft_isascii_test();
+	ft_isprint_test();
+	ft_strlen_test();
+	ft_memset_test();
+	ft_bzero_test();
+	ft_memcpy_test();
+	ft_memmove_test();
+	printf("All tests passed successfully!\n");
+	return (0);
+}

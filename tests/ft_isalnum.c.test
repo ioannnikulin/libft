@@ -1,0 +1,36 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    ft_isalnum.c.test                                  :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: inikulin <inikulin@student.42berlin.d      +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2023/11/13 17:55:39 by inikulin          #+#    #+#              #
+#    Updated: 2023/11/13 18:04:28 by inikulin         ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
+int	ft_isalnum(int c);
+
+void	ft_isalnum_test(void)
+{
+	assert(ft_isalnum('/') == 0);
+	assert(ft_isalnum(':') == 0);
+	assert(ft_isalnum('0') == 1);
+	assert(ft_isalnum('1') == 1);
+	assert(ft_isalnum('9') == 1);
+	assert(ft_isalnum('a') == 1);
+	assert(ft_isalnum('z') == 1);
+	assert(ft_isalnum('A') == 1);
+	assert(ft_isalnum('Z') == 1);
+	assert(ft_isalnum('ẞ') == 0);
+	assert(ft_isalnum('ä') == 0);
+	assert(ft_isalnum('\0') == 0);
+	assert(ft_isalnum('\n') == 0);
+	assert(ft_isalnum('\t') == 0);
+	assert(ft_isalnum('!') == 0);
+	assert(ft_isalnum('@') == 0);
+	assert(ft_isalnum('[') == 0);
+	assert(ft_isalnum('`') == 0);
+	assert(ft_isalnum('{') == 0);
+}

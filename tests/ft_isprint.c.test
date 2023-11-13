@@ -1,0 +1,43 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    ft_isprint.c.test                                  :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: inikulin <inikulin@student.42berlin.d      +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2023/11/13 17:55:39 by inikulin          #+#    #+#              #
+#    Updated: 2023/11/13 19:01:07 by inikulin         ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
+int	ft_isprint(int c);
+
+void	ft_isprint_test(void)
+{
+	assert(ft_isprint('/') == 1);
+	assert(ft_isprint(':') == 1);
+	assert(ft_isprint('0') == 1);
+	assert(ft_isprint('1') == 1);
+	assert(ft_isprint('9') == 1);
+	assert(ft_isprint('a') == 1);
+	assert(ft_isprint('z') == 1);
+	assert(ft_isprint('A') == 1);
+	assert(ft_isprint('Z') == 1);
+	assert(ft_isprint('ẞ') == 0);
+	assert(ft_isprint('ä') == 0);
+	assert(ft_isprint('\0') == 0);
+	assert(ft_isprint('\n') == 0);
+	assert(ft_isprint('\t') == 0);
+	assert(ft_isprint('!') == 1);
+	assert(ft_isprint('@') == 1);
+	assert(ft_isprint('[') == 1);
+	assert(ft_isprint('`') == 1);
+	assert(ft_isprint('{') == 1);
+	assert(ft_isprint(128) == 0);
+	assert(ft_isprint('€') == 0);
+	assert(ft_isprint('¤') == 0);
+	assert(ft_isprint(-1) == 0);
+	assert(ft_isprint(-128) == 0);
+	assert(ft_isprint(' ') == 1);
+	assert(ft_isprint(31) == 0);
+}
