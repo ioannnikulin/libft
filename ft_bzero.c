@@ -6,17 +6,14 @@
 /*   By: inikulin <inikulin@student.42berlin.d      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/13 19:01:40 by inikulin          #+#    #+#             */
-/*   Updated: 2023/11/13 21:22:58 by inikulin         ###   ########.fr       */
+/*   Updated: 2023/11/14 16:53:47 by inikulin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-void	*ft_bzero(void *s, size_t n)
+void	ft_bzero(void *s, unsigned long long n)
 {
-	if (s == NULL)
-		return (s);
+	if (s == 0)
+		return ;
 	while (n --)
-	{
-		s[n] = 0;
-	}
-	return (s);
+		(*(char *)&s[n]) = 0;
 }

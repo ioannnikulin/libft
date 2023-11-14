@@ -1,24 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memset.c                                        :+:      :+:    :+:   */
+/*   ft_strlen_test.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: inikulin <inikulin@student.42berlin.d      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/13 19:01:40 by inikulin          #+#    #+#             */
-/*   Updated: 2023/11/14 17:29:49 by inikulin         ###   ########.fr       */
+/*   Created: 2023/11/14 15:56:43 by inikulin          #+#    #+#             */
+/*   Updated: 2023/11/14 17:22:02 by inikulin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-void	*ft_memset(void *s, int c, unsigned long long n)
+#include "tests.h"
+# define SZ 3 
+
+void	ft_strlen_test(void)
 {
-	if (s == 0)
-		return (s);
-	if (c < 0 || c > 255)
-		c = -1;
-	while (n --)
-	{
-		(*(char *)&s[n]) = (char)c;
-	}
-	return (s);
+	char *tests[SZ] = {"hello", "¤", ""};
+	// system strlen segfaults on NULL, so not checking it
+	for (int i = 0; i <  SZ; i ++)
+		assert(ft_strlen(tests[i]) == strlen(tests[i]));
 }
