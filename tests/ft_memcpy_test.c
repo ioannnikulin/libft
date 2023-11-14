@@ -6,7 +6,7 @@
 /*   By: inikulin <inikulin@student.42berlin.d      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/14 15:56:31 by inikulin          #+#    #+#             */
-/*   Updated: 2023/11/14 19:03:09 by inikulin         ###   ########.fr       */
+/*   Updated: 2023/11/14 20:31:31 by inikulin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,9 +44,9 @@ void	ft_memcpy_test(void)
 	t[4] = (t_testcase){1, "iiiiiii", 0};
 	s[0] = -128;
 	t[5] = (t_testcase){1, s, 0};
-	t[6] = (t_testcase){3, "Qwe", 1};
-	t[7] = (t_testcase){3, "Qwe", 2};
-	t[8] = (t_testcase){3, "Qwe", 3};
+	t[6] = (t_testcase){0, "Qwe", 1};
+	t[7] = (t_testcase){0, "Qwe", 2};
+	t[8] = (t_testcase){0, "Qwe", 3};
 	for (int i = 0; i < SZ; i ++)
 	{
 		char * custom_src = ft_memcpy_test_prep(t[i].sz, t[i].filler);
@@ -54,19 +54,16 @@ void	ft_memcpy_test(void)
 			((t[i].nullify & 1) > 0 ? NULL : custom_src), \
 			((t[i].nullify & 2) > 0 ? NULL : t[i].filler), \
 			t[i].sz);
-		if (t[i].nullify == 0) // standard memcpy segfaults on nulls
-		{
-			char * std_src = ft_memcpy_test_prep(t[i].sz, t[i].filler);
-			char * std_res = memcpy( \
-				((t[i].nullify & 1) > 0 ? NULL : std_src), \
-				((t[i].nullify & 2) > 0 ? NULL : t[i].filler), \
-				t[i].sz);
-			if (custom_res != std_res)
-				for (size_t j = 0; j < t[i].sz + 2; j ++)
-					assert(custom_res[j] == std_res[j]);
-			assert(custom_src == custom_res);
-			free(std_src);
-		}
+		char * std_src = ft_memcpy_test_prep(t[i].sz, t[i].filler);
+		char * std_res = memcpy( \
+			((t[i].nullify & 1) > 0 ? NULL : std_src), \
+			((t[i].nullify & 2) > 0 ? NULL : t[i].filler), \
+			t[i].sz);
+		if (custom_res != std_res)
+			for (size_t j = 0; j < t[i].sz + 2; j ++)
+				assert(custom_res[j] == std_res[j]);
+		assert(custom_src == custom_res);
+		free(std_src);
 		free(custom_src);
 	}
 }

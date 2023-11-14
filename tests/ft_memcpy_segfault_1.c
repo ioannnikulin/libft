@@ -1,33 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memmove.c                                       :+:      :+:    :+:   */
+/*   ft_memcpy_segfault_1.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: inikulin <inikulin@student.42berlin.d      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/13 19:01:40 by inikulin          #+#    #+#             */
-/*   Updated: 2023/11/14 20:50:37 by inikulin         ###   ########.fr       */
+/*   Created: 2023/11/14 15:56:03 by inikulin          #+#    #+#             */
+/*   Updated: 2023/11/14 20:39:08 by inikulin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-void	*ft_memmove(void *dest, const void *src, unsigned long long n)
-{
-	unsigned long long	c;
-	char				*d;
-	char				*s;
+#include "tests.h"
 
-	if (n == 0) 
-		return (dest);
-	d = dest;
-	s = src;
-	if (d > s)
-		while (n --)
-			d[n] = s[n];
-	else
+int	main(void)
+{
+	char *s = 0;
+	char *d = calloc(1, 1);
+	if (d == NULL)
 	{
-		c = -1;
-		while ((++ c) < n)
-			d[c] = s[c];
+		printf("ERROR: couldn't allocate memory for testing, result unknown.\n")
+		return (1);
 	}
-	return (dest);
+	ft_memcpy(d, s, (1));
+	printf("ERROR! SEGFAULT WAS EXPECTED!\n");
+	free(d);
+	return (1);
 }
