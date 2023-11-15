@@ -6,7 +6,7 @@
 /*   By: inikulin <inikulin@student.42berlin.d      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/14 15:58:05 by inikulin          #+#    #+#             */
-/*   Updated: 2023/11/14 18:52:30 by inikulin         ###   ########.fr       */
+/*   Updated: 2023/11/15 13:00:36 by inikulin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,30 +44,27 @@ void	ft_memset_test(void)
 	t[3] = (t_testcase){1, 0, 0};
 	t[4] = (t_testcase){0, ' ', 0};
 	t[5] = (t_testcase){1, 128, 0};
-	t[6] = (t_testcase){3, 'Q', 1};
+	t[6] = (t_testcase){0, 'Q', 1};
 	for (int i = 0; i < SZ; i ++)
 	{
 		char * custom_src = ft_memset_test_prep(t[i].sz, t[i].filler);
 		char * custom_res = ft_memset( \
 			((t[i].nullify & 1) > 0 ? NULL : custom_src), \
 			t[i].filler, t[i].sz);
-		if (t[i].nullify == 0)
-		{// original memset segfaults on NULL
-			char * std_src = ft_memset_test_prep(t[i].sz, t[i].filler);
-			char * std_res = memset( \
-				((t[i].nullify & 1) > 0 ? NULL : std_src), \
-				t[i].filler, t[i].sz);
-			if (custom_res == std_res) // NULL
-			{
-				free(custom_src);
-				free(std_src);
-				continue;
-			}
-			for (size_t j = 0; j < t[i].sz + 2; j ++)
-				assert(custom_res[j] == std_res[j]);
-			assert(custom_src == custom_res);
+		char * std_src = ft_memset_test_prep(t[i].sz, t[i].filler);
+		char * std_res = memset( \
+			((t[i].nullify & 1) > 0 ? NULL : std_src), \
+			t[i].filler, t[i].sz);
+		if (custom_res == std_res) // NULL
+		{
+			free(custom_src);
 			free(std_src);
+			continue;
 		}
+		for (size_t j = 0; j < t[i].sz + 2; j ++)
+			assert(custom_res[j] == std_res[j]);
+		assert(custom_src == custom_res);
+		free(std_src);
 		free(custom_src);
 	}
 }

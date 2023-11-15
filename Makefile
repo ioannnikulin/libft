@@ -14,8 +14,7 @@ TESTNAME = $(TESTF)/test
 TESTFLAGS = -L. -lft
 TESTINCLUDES = -I $(TESTF)/tests.h
 #==============================================================================
-SEGFAULTS = $(TESTF)/ft_bzero_segfault_1.c $(TESTF)/ft_memcpy_segfault_1.c $(TESTF)/ft_memcpy_segfault_2.c $(TESTF)/ft_memcpy_segfault_3.c $(TESTF)/ft_memmove_segfault_1.c $(TESTF)/ft_memmove_segfault_2.c $(TESTF)/ft_memmove_segfault_3.c
-
+SEGFAULTS = $(TESTF)/ft_bzero_segfault_1.c $(TESTF)/ft_memcpy_segfault_1.c $(TESTF)/ft_memcpy_segfault_2.c $(TESTF)/ft_memcpy_segfault_3.c $(TESTF)/ft_memmove_segfault_1.c $(TESTF)/ft_memmove_segfault_2.c $(TESTF)/ft_memmove_segfault_3.c $(TESTF)/ft_strlen_segfault_1.c $(TESTF)/ft_memset_segfault_1.c
 
 SEGFAULTOBJS = $(SEGFAULTS:.c=.o)
 SEGFAULTNAMES = $(SEGFAULTS:.c=.sf)
@@ -65,5 +64,5 @@ go: re retest
 	tests/test
 	# -------- Multiple segfaults expected, which is part of the testing. --------
 	# -------- Stay calm unless you see an error message in UPPER CASE. --------
-	@$(SEGFAULTNAMES:%.sf=%.sf ||) true
+	$(SEGFAULTNAMES:%.sf=%.sf ||) true
 	# -------- Testing finished. --------

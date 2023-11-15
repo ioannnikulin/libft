@@ -1,21 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_memset_segfault_1.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: inikulin <inikulin@student.42berlin.d      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/13 19:01:40 by inikulin          #+#    #+#             */
-/*   Updated: 2023/11/15 12:53:59 by inikulin         ###   ########.fr       */
+/*   Created: 2023/11/14 15:56:03 by inikulin          #+#    #+#             */
+/*   Updated: 2023/11/15 13:04:11 by inikulin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-unsigned long long	ft_strlen(char *c)
-{
-	unsigned long long	res;
+#include "tests.h"
 
-	res = 0;
-	while (c[res])
-		res ++;
-	return (res);
+int	main(void)
+{
+	char *s = 0;
+	ft_memset(s, 1, (1));
+	printf("ERROR! SEGFAULT WAS EXPECTED!\n");
+	return (1);
 }
