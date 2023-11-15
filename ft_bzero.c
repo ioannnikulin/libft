@@ -6,7 +6,7 @@
 /*   By: inikulin <inikulin@student.42berlin.d      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/13 19:01:40 by inikulin          #+#    #+#             */
-/*   Updated: 2023/11/14 20:46:24 by inikulin         ###   ########.fr       */
+/*   Updated: 2023/11/15 12:25:00 by inikulin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,5 +18,5 @@ void	ft_bzero(void *s, unsigned long long n)
 		return ;
 	ss = s;
 	while (n --)
-		s[n] = 0;
+		ss[n] = 0;
 }

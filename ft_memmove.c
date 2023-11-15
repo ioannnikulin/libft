@@ -6,7 +6,7 @@
 /*   By: inikulin <inikulin@student.42berlin.d      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/13 19:01:40 by inikulin          #+#    #+#             */
-/*   Updated: 2023/11/14 20:50:37 by inikulin         ###   ########.fr       */
+/*   Updated: 2023/11/15 12:25:54 by inikulin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@ void	*ft_memmove(void *dest, const void *src, unsigned long long n)
 {
 	unsigned long long	c;
 	char				*d;
-	char				*s;
+	const char			*s;
 
 	if (n == 0) 
 		return (dest);

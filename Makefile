@@ -14,7 +14,8 @@ TESTNAME = $(TESTF)/test
 TESTFLAGS = -L. -lft
 TESTINCLUDES = -I $(TESTF)/tests.h
 #==============================================================================
-SEGFAULTS = $(TESTF)/ft_bzero_segfault_1.c
+SEGFAULTS = $(TESTF)/ft_bzero_segfault_1.c $(TESTF)/ft_memcpy_segfault_1.c $(TESTF)/ft_memcpy_segfault_2.c $(TESTF)/ft_memcpy_segfault_3.c $(TESTF)/ft_memmove_segfault_1.c $(TESTF)/ft_memmove_segfault_2.c $(TESTF)/ft_memmove_segfault_3.c
+
 
 SEGFAULTOBJS = $(SEGFAULTS:.c=.o)
 SEGFAULTNAMES = $(SEGFAULTS:.c=.sf)

@@ -6,7 +6,7 @@
 /*   By: inikulin <inikulin@student.42berlin.d      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/14 15:57:21 by inikulin          #+#    #+#             */
-/*   Updated: 2023/11/14 20:52:32 by inikulin         ###   ########.fr       */
+/*   Updated: 2023/11/15 12:47:18 by inikulin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,11 +50,15 @@ void	ft_memmove_test(void)
 	t[3] = (t_testcase){10, "abc", 1, 4, 2, 0};
 	t[4] = (t_testcase){10, "abc", 4, 4, 2, 0};
 	t[5] = (t_testcase){10, "", 4, 4, 2, 0};
-	t[6] = (t_testcase){10, "abc", 1, 2, 0, 1}; // if any of ptrs is 0 - only zero bytes to copy
-	t[7] = (t_testcase){10, "abc", 1, 2, 0, 2};
-	t[8] = (t_testcase){10, "abc", 1, 2, 0, 3};
+	t[6] = (t_testcase){10, "abc", 1, 0, 6, 1}; // if any of ptrs is 0 - only zero bytes to copy
+	t[7] = (t_testcase){10, "abc", 1, 0, 6, 2};
+	t[8] = (t_testcase){10, "abc", 1, 0, 6, 3};
 	for (int i = 0; i < SZ; i ++)
 	{
+		if (i == 6) {
+			int abc = 1;
+			abc = 2;
+		}
 		char * custom_src = ft_memmove_test_prep(t[i]);
 		char * custom_res = ft_memmove( \
 			((t[i].nullify & 1) > 0 ? NULL : &custom_src[t[i].dst_start]), \

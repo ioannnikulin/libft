@@ -6,7 +6,7 @@
 /*   By: inikulin <inikulin@student.42berlin.d      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/14 15:56:31 by inikulin          #+#    #+#             */
-/*   Updated: 2023/11/14 20:31:31 by inikulin         ###   ########.fr       */
+/*   Updated: 2023/11/15 12:38:32 by inikulin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,10 @@ void	ft_memcpy_test(void)
 		if (custom_res != std_res)
 			for (size_t j = 0; j < t[i].sz + 2; j ++)
 				assert(custom_res[j] == std_res[j]);
-		assert(custom_src == custom_res);
+		if ((t[i].nullify & 1) == 0)
+		       	assert(custom_src == custom_res);
+		else
+			assert(custom_res == NULL);
 		free(std_src);
 		free(custom_src);
 	}
