@@ -6,7 +6,7 @@
 /*   By: inikulin <inikulin@student.42berlin.d      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/14 15:57:31 by inikulin          #+#    #+#             */
-/*   Updated: 2023/11/16 13:41:37 by inikulin         ###   ########.fr       */
+/*   Updated: 2023/11/16 14:25:11 by inikulin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,10 @@ int	main(void)
 	printf("tolower ok\n");
 	ft_strchr_test();
 	printf("strchr ok\n");
+	ft_strrchr_test();
+	printf("strrchr ok\n");
+	ft_strncmp_test();
+	printf("strncmp ok\n");
 	printf("All tests passed successfully!\n");
 	return (0);
 }

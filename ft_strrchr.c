@@ -1,22 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcat_segfault_1.c                            :+:      :+:    :+:   */
+/*   ft_strrchr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: inikulin <inikulin@student.42berlin.d      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/14 15:56:03 by inikulin          #+#    #+#             */
-/*   Updated: 2023/11/16 15:16:12 by inikulin         ###   ########.fr       */
+/*   Created: 2023/11/13 19:01:40 by inikulin          #+#    #+#             */
+/*   Updated: 2023/11/16 14:19:29 by inikulin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "tests.h"
+#include <stddef.h>
 
-int	main(void)
+char	*ft_strrchr(const char *s, int c)
 {
-	char *s = 0;
-	char *d = 0;
-	ft_strlcat(d, s, (0));
-	printf("ERROR! SEGFAULT WAS EXPECTED!\n");
-	return (1);
+	size_t	cur;
+	size_t	ret;
+
+	cur = 0;
+	ret = 0;
+	while (s[cur])
+	{
+		if (s[cur] == c)
+			ret = cur;
+		cur ++;
+	}
+	if (c == 0)
+		return ((char *)&s[cur]);
+	if (ret != 0 || s[0] == c)
+		return ((char *)&s[ret]);
+	return (0);
 }

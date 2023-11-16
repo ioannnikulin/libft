@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcat_segfault_1.c                            :+:      :+:    :+:   */
+/*   ft_strncmp_segfault_3.c                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: inikulin <inikulin@student.42berlin.d      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/14 15:56:03 by inikulin          #+#    #+#             */
-/*   Updated: 2023/11/16 15:16:12 by inikulin         ###   ########.fr       */
+/*   Updated: 2023/11/16 15:35:16 by inikulin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,13 @@
 int	main(void)
 {
 	char *s = 0;
-	char *d = 0;
-	ft_strlcat(d, s, (0));
+	char *d = calloc(1, 1);
+	if (!d)
+	{
+		printf("ERROR: couldn't allocate memory for testing. Result unknown.\n");
+		return (1);
+	}
+	ft_strncmp(s, d, 1);
 	printf("ERROR! SEGFAULT WAS EXPECTED!\n");
 	return (1);
 }

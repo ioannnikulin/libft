@@ -1,22 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcat_segfault_1.c                            :+:      :+:    :+:   */
+/*   ft_strncmp.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: inikulin <inikulin@student.42berlin.d      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/14 15:56:03 by inikulin          #+#    #+#             */
-/*   Updated: 2023/11/16 15:16:12 by inikulin         ###   ########.fr       */
+/*   Created: 2023/11/13 19:01:40 by inikulin          #+#    #+#             */
+/*   Updated: 2023/11/16 15:35:59 by inikulin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "tests.h"
+#include <stddef.h>
 
-int	main(void)
+int	ft_strncmp(const char *s1, const char *s2, size_t n)
 {
-	char *s = 0;
-	char *d = 0;
-	ft_strlcat(d, s, (0));
-	printf("ERROR! SEGFAULT WAS EXPECTED!\n");
-	return (1);
+	size_t	c;
+
+	if (n == 0)
+		return (0);
+	c = 0;
+	while (s1[c] && s2[c] == s1[c] && c < n - 1)
+		c ++;
+	return (s1[c] - s2[c]);
 }

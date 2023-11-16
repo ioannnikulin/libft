@@ -6,7 +6,7 @@
 /*   By: inikulin <inikulin@student.42berlin.d      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/14 15:56:03 by inikulin          #+#    #+#             */
-/*   Updated: 2023/11/16 13:18:21 by inikulin         ###   ########.fr       */
+/*   Updated: 2023/11/16 15:16:25 by inikulin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ int	main(void)
 		return (1);
 	}
 	char *d = 0;
-	strlcat(s, d, (1));
+	ft_strlcat(s, d, (1));
 	printf("ERROR! SEGFAULT WAS EXPECTED!\n");
 	return (1);
 }
