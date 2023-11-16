@@ -1,0 +1,5 @@
+*/*.o
+*/*.sf
+libft.a
+*/*.swp
+tests/test
