@@ -6,12 +6,12 @@
 /*   By: inikulin <inikulin@student.42berlin.d      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/14 15:56:43 by inikulin          #+#    #+#             */
-/*   Updated: 2023/11/16 14:19:39 by inikulin         ###   ########.fr       */
+/*   Updated: 2023/11/16 17:40:56 by inikulin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "tests.h"
-#define SZ 9
+#define SZ 11
 
 typedef struct s_testcase
 {
@@ -29,10 +29,10 @@ void	ft_strrchr_test(void)
 	tests[4] = (t_testcase){"hello", '\0'};
 	tests[5] = (t_testcase){"hello", 'H'};
 	tests[6] = (t_testcase){"hello", 2147483647};
-//	tests[7] = (t_testcase){"¤¤", 164};
-//	tests[8] = (t_testcase){"i¤i", 164};
-	tests[7] = (t_testcase){"", '0'};
-	tests[8] = (t_testcase){"", '\0'};
+	tests[7] = (t_testcase){"hello", 'l' + 256};
+	tests[8] = (t_testcase){"¤hello¤", 'l' + 256 + 2048};
+	tests[9] = (t_testcase){"", '0'};
+	tests[10] = (t_testcase){"", '\0'};
 	// system strlen segfaults on NULL, so not checking it
 	for (int i = 0; i <  SZ; i ++)
 	{

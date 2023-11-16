@@ -6,7 +6,7 @@
 /*   By: inikulin <inikulin@student.42berlin.d      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/14 15:58:05 by inikulin          #+#    #+#             */
-/*   Updated: 2023/11/15 13:00:36 by inikulin         ###   ########.fr       */
+/*   Updated: 2023/11/16 17:10:34 by inikulin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ void	*ft_memset_test_prep(size_t sz, int filler)
 	return (res);
 }
 
-# define SZ 7
+# define SZ 8
 
 void	ft_memset_test(void)
 {
@@ -45,6 +45,7 @@ void	ft_memset_test(void)
 	t[4] = (t_testcase){0, ' ', 0};
 	t[5] = (t_testcase){1, 128, 0};
 	t[6] = (t_testcase){0, 'Q', 1};
+	t[7] = (t_testcase){10, 263, 0};
 	for (int i = 0; i < SZ; i ++)
 	{
 		char * custom_src = ft_memset_test_prep(t[i].sz, t[i].filler);

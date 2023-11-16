@@ -1,35 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strrchr.c                                       :+:      :+:    :+:   */
+/*   ft_memcmp_segfault_2.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: inikulin <inikulin@student.42berlin.d      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/13 19:01:40 by inikulin          #+#    #+#             */
-/*   Updated: 2023/11/16 17:38:24 by inikulin         ###   ########.fr       */
+/*   Created: 2023/11/14 15:56:03 by inikulin          #+#    #+#             */
+/*   Updated: 2023/11/16 17:48:13 by inikulin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stddef.h>
+#include "tests.h"
 
-char	*ft_strrchr(const char *s, int c)
+int	main(void)
 {
-	size_t	cur;
-	size_t	ret;
-	unsigned char	cc;
-
-	cur = 0;
-	ret = 0;
-	cc = (unsigned char)(c % 256);
-	while (s[cur])
+	char *s = 0;
+	char *d = calloc(10, 1);
+	if (!d)
 	{
-		if (s[cur] == cc)
-			ret = cur;
-		cur ++;
+		printf("ERROR: couldn't allocate memory for testing. Results unknown.\n");
+		return (1);
 	}
-	if (cc == 0)
-		return ((char *)&s[cur]);
-	if (ret != 0 || s[0] == cc)
-		return ((char *)&s[ret]);
-	return (0);
+	ft_memcmp(d, s, 1);
+	printf("ERROR! SEGFAULT WAS EXPECTED!\n");
+	return (1);
 }

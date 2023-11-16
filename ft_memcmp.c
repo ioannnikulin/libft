@@ -1,35 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strrchr.c                                       :+:      :+:    :+:   */
+/*   ft_memcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: inikulin <inikulin@student.42berlin.d      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/13 19:01:40 by inikulin          #+#    #+#             */
-/*   Updated: 2023/11/16 17:38:24 by inikulin         ###   ########.fr       */
+/*   Updated: 2023/11/16 16:29:24 by inikulin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stddef.h>
 
-char	*ft_strrchr(const char *s, int c)
+int	ft_memcmp(const void *s1, const void *s2, size_t n)
 {
-	size_t	cur;
-	size_t	ret;
-	unsigned char	cc;
+	size_t	c;
+	unsigned char	*s11;
+	unsigned char	*s22;
 
-	cur = 0;
-	ret = 0;
-	cc = (unsigned char)(c % 256);
-	while (s[cur])
-	{
-		if (s[cur] == cc)
-			ret = cur;
-		cur ++;
-	}
-	if (cc == 0)
-		return ((char *)&s[cur]);
-	if (ret != 0 || s[0] == cc)
-		return ((char *)&s[ret]);
-	return (0);
+	if (n == 0)
+		return (0);
+	s11 = (unsigned char*)s1;
+	s22 = (unsigned char*)s2;
+	c = 0;
+	while (s22[c] == s11[c] && c < n - 1)
+		c ++;
+	return (s11[c] - s22[c]);
 }

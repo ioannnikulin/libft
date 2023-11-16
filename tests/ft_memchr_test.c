@@ -6,12 +6,12 @@
 /*   By: inikulin <inikulin@student.42berlin.d      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/14 15:56:43 by inikulin          #+#    #+#             */
-/*   Updated: 2023/11/16 16:23:09 by inikulin         ###   ########.fr       */
+/*   Updated: 2023/11/16 17:43:34 by inikulin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "tests.h"
-#define SZ 13
+#define SZ 15
 //#define DEBUG
 
 typedef struct s_testcase
@@ -42,6 +42,8 @@ void	ft_memchr_test(void)
 	tests[10] = (t_testcase){s, '0', 5};
 	tests[11] = (t_testcase){s, '\0', 5};
 	tests[12] = (t_testcase){0, '\0', 0};
+	tests[13] = (t_testcase){"hello", 'l' + 512, 5};
+	tests[14] = (t_testcase){"¤hello¤", 'l' + 512 + 2048, 5};
 	for (int i = 0; i <  SZ; i ++)
 	{
 		char* std = memchr(tests[i].s, tests[i].c, tests[i].n);
