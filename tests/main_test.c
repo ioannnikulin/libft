@@ -6,7 +6,7 @@
 /*   By: inikulin <inikulin@student.42berlin.d      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/14 15:57:31 by inikulin          #+#    #+#             */
-/*   Updated: 2023/11/16 16:10:49 by inikulin         ###   ########.fr       */
+/*   Updated: 2023/11/16 18:13:16 by inikulin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,42 +15,44 @@
 
 int	main(void)
 {
+	printf("isalpha in testing\n");
 	ft_isalpha_test();
-	printf("isalpha ok\n");
+	printf("isdigit in testing\n");
 	ft_isdigit_test();
-	printf("isdigit ok\n");
+	printf("isalnum in testing\n");
 	ft_isalnum_test();
-	printf("isalnum ok\n");
+	printf("isascii in testing\n");
 	ft_isascii_test();
-	printf("isascii ok\n");
+	printf("isprint in testing\n");
 	ft_isprint_test();
-	printf("isprint ok\n");
+	printf("strlen in testing\n");
 	ft_strlen_test();
-	printf("strlen ok\n");
+	printf("memset in testing\n");
 	ft_memset_test();
-	printf("memset ok\n");
+	printf("bzero in testing\n");
 	ft_bzero_test();
-	printf("bzero ok\n");
+	printf("memcpy in testing\n");
 	ft_memcpy_test();
-	printf("memcpy ok\n");
+	printf("memmove in testing\n");
 	ft_memmove_test();
-	printf("memmove ok\n");
+	printf("strlcpy in testing\n");
 	ft_strlcpy_test();
-	printf("strlcpy ok\n");
+	printf("strlcat in testing\n");
 	ft_strlcat_test();
-	printf("strlcat ok\n");
+	printf("toupper in testing\n");
 	ft_toupper_test();
-	printf("toupper ok\n");
+	printf("tolower in testing\n");
 	ft_tolower_test();
-	printf("tolower ok\n");
+	printf("strchr in testing\n");
 	ft_strchr_test();
-	printf("strchr ok\n");
+	printf("strrchr in testing\n");
 	ft_strrchr_test();
-	printf("strrchr ok\n");
+	printf("strncmp in testing\n");
 	ft_strncmp_test();
-	printf("strncmp ok\n");
+	printf("memchr in testing\n");
 	ft_memchr_test();
-	printf("memchr ok\n");
+	printf("strnstr in testing\n");
+	ft_strnstr_test();
 	printf("All tests passed successfully!\n");
 	return (0);
 }

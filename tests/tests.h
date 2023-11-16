@@ -6,7 +6,7 @@
 /*   By: inikulin <inikulin@student.42berlin.d      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/14 15:58:51 by inikulin          #+#    #+#             */
-/*   Updated: 2023/11/16 16:25:11 by inikulin         ###   ########.fr       */
+/*   Updated: 2023/11/16 18:10:57 by inikulin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,4 +38,5 @@ void	ft_strrchr_test(void);
 void	ft_strncmp_test(void);
 void	ft_memchr_test(void);
 void	ft_memcmp_test(void);
+void	ft_strnstr_test(void);
 #endif
