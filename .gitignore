@@ -1,5 +1,5 @@
-*/*.o
-*/*.sf
+*.o
+*.sf
 libft.a
-*/*.swp
+*.swp
 tests/test
