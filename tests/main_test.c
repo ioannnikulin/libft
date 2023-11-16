@@ -6,7 +6,7 @@
 /*   By: inikulin <inikulin@student.42berlin.d      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/14 15:57:31 by inikulin          #+#    #+#             */
-/*   Updated: 2023/11/15 17:05:18 by inikulin         ###   ########.fr       */
+/*   Updated: 2023/11/16 12:24:21 by inikulin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,8 @@ int	main(void)
 	printf("memmove ok\n");
 	ft_strlcpy_test();
 	printf("strlcpy ok\n");
+	ft_strlcat_test();
+	printf("strlcat ok\n");
 	printf("All tests passed successfully!\n");
 	return (0);
 }
