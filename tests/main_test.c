@@ -6,7 +6,7 @@
 /*   By: inikulin <inikulin@student.42berlin.d      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/14 15:57:31 by inikulin          #+#    #+#             */
-/*   Updated: 2023/11/16 12:24:21 by inikulin         ###   ########.fr       */
+/*   Updated: 2023/11/16 13:41:37 by inikulin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,12 @@ int	main(void)
 	printf("strlcpy ok\n");
 	ft_strlcat_test();
 	printf("strlcat ok\n");
+	ft_toupper_test();
+	printf("toupper ok\n");
+	ft_tolower_test();
+	printf("tolower ok\n");
+	ft_strchr_test();
+	printf("strchr ok\n");
 	printf("All tests passed successfully!\n");
 	return (0);
 }

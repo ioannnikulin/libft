@@ -6,7 +6,7 @@
 /*   By: inikulin <inikulin@student.42berlin.d      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/14 15:57:21 by inikulin          #+#    #+#             */
-/*   Updated: 2023/11/16 13:15:13 by inikulin         ###   ########.fr       */
+/*   Updated: 2023/11/16 13:31:42 by inikulin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,17 +31,17 @@ void	*ft_strlcat_test_prep(t_testcase t)
 	size_t dst_end = t.dst_start + strlen(t.dst); 
 	size_t src_end = t.src_start + strlen(t.src); 
 	assert(t.global_sz >= t.src_start + t.tocopy);
-	printf("%lu %lu %lu\n", t.global_sz, dst_end, t.tocopy);
+	//printf("%lu %lu %lu\n", t.global_sz, dst_end, t.tocopy);
 	assert(t.global_sz >= dst_end + t.tocopy);
 	assert(t.global_sz >= src_end);
 	char * res = calloc(t.global_sz, 1);
 	assert(res != NULL);
 	strncpy(&res[t.dst_start], t.dst, strlen(t.dst));
 	strncpy(&res[t.src_start], t.src, strlen(t.src));
-	printf("ends %lu %lu\n", dst_end, src_end);
+	/*printf("ends %lu %lu\n", dst_end, src_end);
 	for (size_t i = 0; i < t.global_sz; i ++)
 		printf("[%i] ", res[i]);
-	printf("\n");
+	printf("\n");*/
 	assert(res[dst_end] == 0);
 	assert(res[src_end] == 0);
 	for (size_t j = 0; j < t.src_start && j < t.dst_start; j ++)
@@ -90,7 +90,7 @@ void	ft_strlcat_test(void)
 	t[20] = (t_testcase){10, 	"0123", 1, 	2, 	"abc", 6, 	3};*/
 	for (int i = 0; i < SZ; i ++)
 	{
-		printf("%i\n", i);
+//		printf("%i\n", i);
 		char * custom_src = ft_strlcat_test_prep(t[i]);
 		char * std_src = ft_strlcat_test_prep(t[i]);
 		int custom_res = ft_strlcat( \
@@ -101,14 +101,14 @@ void	ft_strlcat_test(void)
 			((t[i].nullify & 1) > 0 ? NULL : &std_src[t[i].dst_start]), \
 			((t[i].nullify & 2) > 0 ? NULL : &std_src[t[i].src_start]), \
 			t[i].tocopy);
-		printf("%p\n%p\n", std_src, custom_src);
+/*		printf("%p\n%p\n", std_src, custom_src);
 		for (size_t j = 0; j < t[i].global_sz; j ++)
 			printf("[%i] ", std_src[j]);
 		printf("\n");
 		for (size_t j = 0; j < t[i].global_sz; j ++)
 			printf("[%i] ", custom_src[j]);
 		printf("\n");
-		printf("%d %d\n", std_res, custom_res);
+		printf("%d %d\n", std_res, custom_res);*/
 		for (size_t j = 0; j < t[i].global_sz; j ++)
 			assert(custom_src[j] == std_src[j]);
 		assert(std_res == custom_res);
