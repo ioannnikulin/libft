@@ -6,7 +6,7 @@
 /*   By: inikulin <inikulin@student.42berlin.d      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/14 15:58:51 by inikulin          #+#    #+#             */
-/*   Updated: 2023/11/17 16:30:19 by inikulin         ###   ########.fr       */
+/*   Updated: 2023/11/17 18:27:32 by inikulin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,4 +46,6 @@ void	ft_atoi_test(void);
 // don't know how to test calloc. I can check that n bytes are empty, but cannot check their state before, and also cannot check the space after.
 void	ft_strdup_test(void);
 void	ft_substr_test(void);
+void	ft_strjoin_test(void);
+void	ft_strtrim_test(void);
 #endif
