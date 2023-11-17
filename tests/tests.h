@@ -6,7 +6,7 @@
 /*   By: inikulin <inikulin@student.42berlin.d      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/14 15:58:51 by inikulin          #+#    #+#             */
-/*   Updated: 2023/11/17 14:29:10 by inikulin         ###   ########.fr       */
+/*   Updated: 2023/11/17 14:54:58 by inikulin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ void	ft_isdigit_test(void);
 void	ft_isalnum_test(void);
 void	ft_isascii_test(void);
 void	ft_isprint_test(void);
+void	ft_isspace_test(void);
 void	ft_strlen_test(void);
 void	ft_memset_test(void);
 void	ft_bzero_test(void);
@@ -41,4 +42,5 @@ void	ft_strncmp_test(void);
 void	ft_memchr_test(void);
 void	ft_memcmp_test(void);
 void	ft_strnstr_test(void);
+void	ft_atoi_test(void);
 #endif
