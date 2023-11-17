@@ -6,12 +6,24 @@
 /*   By: inikulin <inikulin@student.42berlin.d      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/14 15:57:31 by inikulin          #+#    #+#             */
-/*   Updated: 2023/11/16 18:13:16 by inikulin         ###   ########.fr       */
+/*   Updated: 2023/11/17 14:27:44 by inikulin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "tests.h"
 #include <stdio.h>
+
+int	bad_alloc(int ret)
+{
+	printf("ERROR: couldn't allocate memory for testing. Results unknown.\n");
+	return (ret);
+}
+
+int	segfault_expected(int ret)
+{
+	printf("ERROR: SEGFAULT EXPECTED!\n");
+	return (ret);
+}
 
 int	main(void)
 {

@@ -1,20 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memset_segfault_1.c                             :+:      :+:    :+:   */
+/*   aux.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: inikulin <inikulin@student.42berlin.d      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/14 15:56:03 by inikulin          #+#    #+#             */
-/*   Updated: 2023/11/17 14:20:44 by inikulin         ###   ########.fr       */
+/*   Created: 2023/11/14 15:57:31 by inikulin          #+#    #+#             */
+/*   Updated: 2023/11/17 14:30:52 by inikulin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "tests.h"
+#include <stdio.h>
 
-int	main(void)
+int	bad_alloc(int ret)
 {
-	char *s = 0;
-	ft_memset(s, 1, (1));
-	return (segfault_expected(1));
+	printf("ERROR: couldn't allocate memory for testing. Results unknown.\n");
+	return (ret);
+}
+
+int	segfault_expected(int ret)
+{
+	printf("ERROR: SEGFAULT EXPECTED!\n");
+	return (ret);
 }

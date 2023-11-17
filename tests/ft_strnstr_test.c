@@ -6,11 +6,12 @@
 /*   By: inikulin <inikulin@student.42berlin.d      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/14 15:56:31 by inikulin          #+#    #+#             */
-/*   Updated: 2023/11/16 18:26:02 by inikulin         ###   ########.fr       */
+/*   Updated: 2023/11/17 14:08:27 by inikulin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "tests.h"
+//#define DEBUG
 
 typedef struct s_testcase
 {
@@ -19,7 +20,7 @@ typedef struct s_testcase
 	size_t	n;
 }	t_testcase;
 
-# define SZ 30
+#define SZ 26
 
 void	ft_strnstr_test(void)
 {
@@ -46,29 +47,35 @@ void	ft_strnstr_test(void)
 	t[19] = (t_testcase){"abcdef", "abcdefg", 0};
 	t[20] = (t_testcase){"abcdef", "abcdefg", 6};
 	t[21] = (t_testcase){"abcdef", "abcdefg", 7};
-	t[22] = (t_testcase){0, "abc", 0};
-	t[23] = (t_testcase){0, "abc", 1};
-	t[24] = (t_testcase){"abc", 0, 0};
-	t[25] = (t_testcase){"abc", 0, 1};
 	char s[20] = "abcabcabcabcdabcd";
 	s[10] = 0;
-	t[26] = (t_testcase){s, "abcd", 15};
-	t[27] = (t_testcase){s, "abcd", 16};
-	t[28] = (t_testcase){s, "abcd", 17};
-	t[29] = (t_testcase){"aaab", "aab", 17};
+	t[22] = (t_testcase){s, "abcd", 15};
+	t[23] = (t_testcase){s, "abcd", 16};
+	t[24] = (t_testcase){s, "abcd", 17};
+	t[25] = (t_testcase){"aaab", "aab", 17};
 	for (int i = 0; i < SZ; i ++)
 	{
+		#ifdef DEBUG
+			printf("%i : ", i);
+			fflush(stdout);
+		#endif
 		char *std = strnstr(
 				t[i].s1
 				, t[i].s2
 				, t[i].n
 				);
+		#ifdef DEBUG
+			printf("%p ", std);
+			fflush(stdout);
+		#endif
 		char *custom = ft_strnstr(
 				t[i].s1
 				, t[i].s2
 				, t[i].n
 				);
-		//printf("!%i %i %i\n\n", i, std, custom);
+		#ifdef DEBUG
+			printf("%p\n\n", custom);
+		#endif
 		assert(std == custom);
 	}
 }

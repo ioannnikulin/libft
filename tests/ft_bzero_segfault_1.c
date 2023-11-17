@@ -6,7 +6,7 @@
 /*   By: inikulin <inikulin@student.42berlin.d      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/14 15:56:03 by inikulin          #+#    #+#             */
-/*   Updated: 2023/11/15 13:03:35 by inikulin         ###   ########.fr       */
+/*   Updated: 2023/11/17 14:16:40 by inikulin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,5 @@ int	main(void)
 {
 	char *s = 0;
 	ft_bzero(s, (1));
-	printf("ERROR! SEGFAULT WAS EXPECTED!\n");
-	return (1);
+	return (segfault_expected(1));
 }

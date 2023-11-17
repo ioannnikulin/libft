@@ -6,7 +6,7 @@
 /*   By: inikulin <inikulin@student.42berlin.d      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/14 15:58:51 by inikulin          #+#    #+#             */
-/*   Updated: 2023/11/16 18:10:57 by inikulin         ###   ########.fr       */
+/*   Updated: 2023/11/17 14:29:10 by inikulin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@
 # include <stdio.h>
 # include "../libft.h"
 
+int	bad_alloc(int ret);
+int	segfault_expected(int ret);
 void	ft_isalpha_test(void);
 void	ft_isdigit_test(void);
 void	ft_isalnum_test(void);
