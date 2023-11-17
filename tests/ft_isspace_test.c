@@ -5,39 +5,28 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: inikulin <inikulin@student.42berlin.d      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/14 15:57:12 by inikulin          #+#    #+#             */
-/*   Updated: 2023/11/17 15:08:09 by inikulin         ###   ########.fr       */
+/*   Created: 2023/11/14 15:57:01 by inikulin          #+#    #+#             */
+/*   Updated: 2023/11/17 15:59:02 by inikulin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "tests.h"
+#include <limits.h>
+#include <ctype.h>
+//#define DEBUG
 
 void	ft_isspace_test(void)
 {
-	assert(ft_isdigit('/') == 0);
-	assert(ft_isdigit(':') == 0);
-	assert(ft_isdigit('0') == 0);
-	assert(ft_isdigit('1') == 0);
-	assert(ft_isdigit('9') == 0);
-	assert(ft_isdigit('a') == 0);
-	assert(ft_isdigit('z') == 0);
-	assert(ft_isdigit('A') == 0);
-	assert(ft_isdigit('Z') == 0);
-	assert(ft_isdigit(128) == 0);
-	assert(ft_isdigit(2000000000) == 0);
-	assert(ft_isdigit(-2147483648) == 0);
-	assert(ft_isdigit(2147483647) == 0);
-	assert(ft_isdigit(-1) == 0);
-	assert(ft_isdigit('\0') == 0);
-	assert(ft_isdigit('\n') == 1);
-	assert(ft_isdigit('\t') == 1);
-	assert(ft_isdigit('\v') == 1);
-	assert(ft_isdigit('\f') == 1);
-	assert(ft_isdigit('\r') == 1);
-	assert(ft_isdigit(' ') == 1);
-	assert(ft_isdigit('!') == 0);
-	assert(ft_isdigit('@') == 0);
-	assert(ft_isdigit('[') == 0);
-	assert(ft_isdigit('`') == 0);
-	assert(ft_isdigit('{') == 0);
+	for (int i = 0; i < 256; i ++)
+	{
+		#ifdef DEBUG
+		printf("%i ", i);
+		fflush(stdout);
+		printf("%i ", isspace(i));
+		fflush(stdout);
+		printf("%i, \t", ft_isspace(i));
+		#endif
+		assert((ft_isspace(i) == 0) == (isspace(i) == 0));
+	}
+
 }

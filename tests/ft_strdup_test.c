@@ -1,32 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isalpha_test.c                                  :+:      :+:    :+:   */
+/*   ft_strdup_test.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: inikulin <inikulin@student.42berlin.d      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/14 15:57:01 by inikulin          #+#    #+#             */
-/*   Updated: 2023/11/17 15:55:16 by inikulin         ###   ########.fr       */
+/*   Created: 2023/11/14 15:56:43 by inikulin          #+#    #+#             */
+/*   Updated: 2023/11/17 16:13:59 by inikulin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "tests.h"
-#include <limits.h>
-#include <ctype.h>
-//#define DEBUG
+#define SZ 3 
 
-void	ft_isalpha_test(void)
+void	ft_strdup_test(void)
 {
-	for (int i = 0; i < 256; i ++)
+	char *tests[SZ] = {"hello", "¤", ""};
+	for (int i = 0; i <  SZ; i ++)
 	{
-		#ifdef DEBUG
-		printf("%i ", i);
-		fflush(stdout);
-		printf("%i ", isalpha(i));
-		fflush(stdout);
-		printf("%i, \t", ft_isalpha(i));
-		#endif
-		assert((ft_isalpha(i) == 0) == (isalpha(i) == 0));
+		char *std = strdup(tests[i]);
+		char *custom = ft_strdup(tests[i]);
+		assert(strcmp(std, custom) == 0);
+		free(std);
+		free(custom);
 	}
-
 }

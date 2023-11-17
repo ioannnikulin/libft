@@ -5,37 +5,28 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: inikulin <inikulin@student.42berlin.d      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/14 15:57:53 by inikulin          #+#    #+#             */
-/*   Updated: 2023/11/14 16:27:39 by inikulin         ###   ########.fr       */
+/*   Created: 2023/11/14 15:57:01 by inikulin          #+#    #+#             */
+/*   Updated: 2023/11/17 15:57:14 by inikulin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "tests.h"
+#include <limits.h>
+#include <ctype.h>
+//#define DEBUG
 
 void	ft_isprint_test(void)
 {
-	assert(ft_isprint('/') == 1);
-	assert(ft_isprint(':') == 1);
-	assert(ft_isprint('0') == 1);
-	assert(ft_isprint('1') == 1);
-	assert(ft_isprint('9') == 1);
-	assert(ft_isprint('a') == 1);
-	assert(ft_isprint('z') == 1);
-	assert(ft_isprint('A') == 1);
-	assert(ft_isprint('Z') == 1);
-	assert(ft_isprint(2000000000) == 0);
-	assert(ft_isprint(-2147483648) == 0);
-	assert(ft_isprint(2147483647) == 0);
-	assert(ft_isprint(-1) == 0);
-	assert(ft_isprint(128) == 0);
-	assert(ft_isprint('\0') == 0);
-	assert(ft_isprint('\n') == 0);
-	assert(ft_isprint('\t') == 0);
-	assert(ft_isprint('!') == 1);
-	assert(ft_isprint('@') == 1);
-	assert(ft_isprint('[') == 1);
-	assert(ft_isprint('`') == 1);
-	assert(ft_isprint('{') == 1);
-	assert(ft_isprint(' ') == 1);
-	assert(ft_isprint(31) == 0);
+	for (int i = 0; i < 256; i ++)
+	{
+		#ifdef DEBUG
+		printf("%i ", i);
+		fflush(stdout);
+		printf("%i ", isprint(i));
+		fflush(stdout);
+		printf("%i, \t", ft_isprint(i));
+		#endif
+		assert((ft_isprint(i) == 0) == (isprint(i) == 0));
+	}
+
 }

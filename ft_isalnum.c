@@ -6,12 +6,13 @@
 /*   By: inikulin <inikulin@student.42berlin.d      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/13 13:54:38 by inikulin          #+#    #+#             */
-/*   Updated: 2023/11/14 17:14:43 by inikulin         ###   ########.fr       */
+/*   Updated: 2023/11/17 15:52:16 by inikulin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 int	ft_isalnum(int c)
 {
+	c = (unsigned char)c;
 	return ((c > 47 && c < 58) || \
 			(c > 64 && c < 91) || (c > 96 && c < 123));
 }

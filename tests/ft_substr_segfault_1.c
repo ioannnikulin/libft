@@ -1,32 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isalpha_test.c                                  :+:      :+:    :+:   */
+/*   ft_substr_segfault_1.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: inikulin <inikulin@student.42berlin.d      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/14 15:57:01 by inikulin          #+#    #+#             */
-/*   Updated: 2023/11/17 15:55:16 by inikulin         ###   ########.fr       */
+/*   Created: 2023/11/14 15:56:03 by inikulin          #+#    #+#             */
+/*   Updated: 2023/11/17 16:56:53 by inikulin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "tests.h"
-#include <limits.h>
-#include <ctype.h>
-//#define DEBUG
 
-void	ft_isalpha_test(void)
+int	main(void)
 {
-	for (int i = 0; i < 256; i ++)
-	{
-		#ifdef DEBUG
-		printf("%i ", i);
-		fflush(stdout);
-		printf("%i ", isalpha(i));
-		fflush(stdout);
-		printf("%i, \t", ft_isalpha(i));
-		#endif
-		assert((ft_isalpha(i) == 0) == (isalpha(i) == 0));
-	}
-
+	char *s = 0;
+	printf("%s\n", ft_substr(s, 0, 1));
+	return (segfault_expected(1));
 }

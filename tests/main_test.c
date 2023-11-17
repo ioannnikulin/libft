@@ -6,7 +6,7 @@
 /*   By: inikulin <inikulin@student.42berlin.d      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/14 15:57:31 by inikulin          #+#    #+#             */
-/*   Updated: 2023/11/17 15:05:04 by inikulin         ###   ########.fr       */
+/*   Updated: 2023/11/17 16:45:39 by inikulin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,10 @@ int	main(void)
 	ft_strnstr_test();
 	printf("atoi in testing\n");
 	ft_atoi_test();
+	printf("strdup in testing\n");
+	ft_strdup_test();
+	printf("substr in testing\n");
+	ft_substr_test();
 	printf("All tests passed successfully!\n");
 	return (0);
 }
