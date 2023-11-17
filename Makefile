@@ -2,13 +2,13 @@ CC = cc
 NAME = libft.a
 CFLAGS = -Wall -Wextra -Werror
 #==============================================================================
-SRCS = ft_isalpha.c ft_isdigit.c ft_isalnum.c ft_isascii.c ft_isprint.c ft_strlen.c ft_memset.c ft_bzero.c ft_memcpy.c ft_memmove.c ft_strlcpy.c ft_strlcat.c ft_tolower.c ft_toupper.c ft_strchr.c ft_strrchr.c ft_strncmp.c ft_memchr.c ft_memcmp.c ft_strnstr.c ft_isspace.c ft_atoi.c ft_calloc.c ft_strdup.c ft_substr.c ft_strjoin.c ft_is_in.c ft_empty_string.c ft_strtrim.c
+SRCS = ft_isalpha.c ft_isdigit.c ft_isalnum.c ft_isascii.c ft_isprint.c ft_strlen.c ft_memset.c ft_bzero.c ft_memcpy.c ft_memmove.c ft_strlcpy.c ft_strlcat.c ft_tolower.c ft_toupper.c ft_strchr.c ft_strrchr.c ft_strncmp.c ft_memchr.c ft_memcmp.c ft_strnstr.c ft_isspace.c ft_atoi.c ft_calloc.c ft_strdup.c ft_substr.c ft_strjoin.c ft_is_in.c ft_empty_string.c ft_strtrim.c ft_split.c ft_itoa.c
 OBJS = $(SRCS:.c=.o)
 INCLUDES = -I libft.h
 PACK = ar rcs
 #==============================================================================
 TESTF = tests
-TESTS = $(TESTF)/main_test.c $(TESTF)/ft_isalpha_test.c $(TESTF)/ft_isdigit_test.c $(TESTF)/ft_isalnum_test.c $(TESTF)/ft_isascii_test.c $(TESTF)/ft_isprint_test.c $(TESTF)/ft_strlen_test.c $(TESTF)/ft_memset_test.c $(TESTF)/ft_bzero_test.c $(TESTF)/ft_memcpy_test.c $(TESTF)/ft_memmove_test.c $(TESTF)/ft_strlcpy_test.c $(TESTF)/ft_strlcat_test.c $(TESTF)/ft_tolower_test.c $(TESTF)/ft_toupper_test.c $(TESTF)/ft_strchr_test.c $(TESTF)/ft_strrchr_test.c $(TESTF)/ft_strncmp_test.c $(TESTF)/ft_memchr_test.c $(TESTF)/ft_memcmp_test.c $(TESTF)/ft_strnstr_test.c $(TESTF)/ft_isspace_test.c $(TESTF)/ft_atoi_test.c $(TESTF)/ft_strdup_test.c $(TESTF)/ft_substr_test.c $(TESTF)/ft_strjoin_test.c $(TESTF)/ft_strtrim_test.c
+TESTS = $(TESTF)/main_test.c $(TESTF)/ft_isalpha_test.c $(TESTF)/ft_isdigit_test.c $(TESTF)/ft_isalnum_test.c $(TESTF)/ft_isascii_test.c $(TESTF)/ft_isprint_test.c $(TESTF)/ft_strlen_test.c $(TESTF)/ft_memset_test.c $(TESTF)/ft_bzero_test.c $(TESTF)/ft_memcpy_test.c $(TESTF)/ft_memmove_test.c $(TESTF)/ft_strlcpy_test.c $(TESTF)/ft_strlcat_test.c $(TESTF)/ft_tolower_test.c $(TESTF)/ft_toupper_test.c $(TESTF)/ft_strchr_test.c $(TESTF)/ft_strrchr_test.c $(TESTF)/ft_strncmp_test.c $(TESTF)/ft_memchr_test.c $(TESTF)/ft_memcmp_test.c $(TESTF)/ft_strnstr_test.c $(TESTF)/ft_isspace_test.c $(TESTF)/ft_atoi_test.c $(TESTF)/ft_strdup_test.c $(TESTF)/ft_substr_test.c $(TESTF)/ft_strjoin_test.c $(TESTF)/ft_strtrim_test.c $(TESTF)/ft_split_test.c $(TESTF)/ft_itoa_test.c
 TESTOBJS = $(TESTS:.c=.o)
 TESTNAME = $(TESTF)/test
 TESTFLAGS = -L. -lft -lbsd

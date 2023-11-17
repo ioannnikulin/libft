@@ -6,7 +6,7 @@
 /*   By: inikulin <inikulin@student.42berlin.d      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/14 15:58:51 by inikulin          #+#    #+#             */
-/*   Updated: 2023/11/17 18:27:32 by inikulin         ###   ########.fr       */
+/*   Updated: 2023/11/17 20:42:55 by inikulin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,4 +48,6 @@ void	ft_strdup_test(void);
 void	ft_substr_test(void);
 void	ft_strjoin_test(void);
 void	ft_strtrim_test(void);
+void	ft_split_test(void);
+void	ft_itoa_test(void);
 #endif

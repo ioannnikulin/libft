@@ -6,7 +6,7 @@
 /*   By: inikulin <inikulin@student.42berlin.d      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/14 15:57:31 by inikulin          #+#    #+#             */
-/*   Updated: 2023/11/17 18:30:16 by inikulin         ###   ########.fr       */
+/*   Updated: 2023/11/17 20:38:11 by inikulin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,6 +63,10 @@ int	main(void)
 	ft_strjoin_test();
 	printf("strtrim in testing\n");
 	ft_strtrim_test();
+	printf("split in testing\n");
+	ft_split_test();
+	printf("itoa in testing\n");
+	ft_itoa_test();
 	printf("All tests passed successfully!\n");
 	return (0);
 }
