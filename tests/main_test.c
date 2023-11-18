@@ -6,7 +6,7 @@
 /*   By: inikulin <inikulin@student.42berlin.d      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/14 15:57:31 by inikulin          #+#    #+#             */
-/*   Updated: 2023/11/17 20:38:11 by inikulin         ###   ########.fr       */
+/*   Updated: 2023/11/18 14:54:16 by inikulin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,6 +67,10 @@ int	main(void)
 	ft_split_test();
 	printf("itoa in testing\n");
 	ft_itoa_test();
+	printf("strmapi in testing\n");
+	ft_strmapi_test();
+	printf("striteri in testing\n");
+	ft_striteri_test();
 	printf("All tests passed successfully!\n");
 	return (0);
 }

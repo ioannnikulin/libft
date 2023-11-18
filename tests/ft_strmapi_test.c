@@ -6,7 +6,7 @@
 /*   By: inikulin <inikulin@student.42berlin.d      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/18 14:40:54 by inikulin          #+#    #+#             */
-/*   Updated: 2023/11/18 14:40:58 by inikulin         ###   ########.fr       */
+/*   Updated: 2023/11/18 15:03:42 by inikulin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,16 +53,21 @@ void	ft_strmapi_test(void)
 	t[5] = (t_testcase){"", b, "", 0}; 
 	t[6] = (t_testcase){"@!@#723gfd\t\n", b, "....000aaa  ", 0}; 
 	t[7] = (t_testcase){"i\x7F\x01r", b, "a..a", 0}; 
-	t[8] = (t_testcase){"abc", a, 0, 1}; 
-	t[9] = (t_testcase){"abc", a, 0, 2}; 
-	t[10] = (t_testcase){"abc", a, 0, 3}; 
+	t[8] = (t_testcase){"abc", a, "", 1}; 
+	t[9] = (t_testcase){"abc", a, "abc", 2}; 
+	t[10] = (t_testcase){"abc", a, "", 3}; 
 	for (int i = 0; i < SZ; i ++)
 	{
-		char *res = ft_strmapi(t[i].what, t[i].f);
+		char *res = ft_strmapi(
+				((t[i].nullify & 1) > 0 ? NULL : t[i].what)
+				, ((t[i].nullify & 2) > 0 ? NULL : t[i].f)
+				);
 		#ifdef DEBUG
-		printf("%i [%s][%s]\n", i, res, t[i].res);
+		printf("%i %p %p\n", i, &res, t[i].res);
+		if (!res && !t[i].res)
+			printf("[%s][%s]\n", res, t[i].res);
 		#endif
-		assert(strcmp(res, t[i].res) == 0);
+		assert((res == t[i].res && !res) || strcmp(res, t[i].res) == 0);
 		free(res);
 	}
 }

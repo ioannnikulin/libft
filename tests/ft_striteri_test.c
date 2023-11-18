@@ -6,7 +6,7 @@
 /*   By: inikulin <inikulin@student.42berlin.d      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/14 15:56:31 by inikulin          #+#    #+#             */
-/*   Updated: 2023/11/18 14:40:41 by inikulin         ###   ########.fr       */
+/*   Updated: 2023/11/18 16:20:13 by inikulin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,8 @@ static void	a(unsigned int idx, char *c)
 {
 	if (idx % 2 == 0)
 		*c = '_';
-	*c = (*c) - 1;
+	else
+		*c = (*c) - 1;
 }
 
 static void	b(unsigned int idx, char *c)
@@ -35,11 +36,12 @@ static void	b(unsigned int idx, char *c)
 	(void)idx;
 	if (ft_isalpha(*c))
 		*c = 'a';
-	if (ft_isdigit(*c))
+	else if (ft_isdigit(*c))
 		*c = '0';
-	if (ft_isspace(*c))
+	else if (ft_isspace(*c))
 		*c = ' ';
-	*c = '.';
+	else
+		*c = '.';
 }
 
 void	ft_striteri_test(void)
@@ -54,17 +56,21 @@ void	ft_striteri_test(void)
 	t[6] = (t_testcase){"@!@#723gfd\t\n", b, "....000aaa  ", 0};
 	t[7] = (t_testcase){"i\x7F\x01r", b, "a..a", 0};
 	t[8] = (t_testcase){"abc", a, 0, 1};
-	t[9] = (t_testcase){"abc", a, 0, 2};
+	t[9] = (t_testcase){"abc", a, "abc", 2};
 	t[10] = (t_testcase){"abc", a, 0, 3};
 	for (int i = 0; i < SZ; i ++)
 	{
-		ft_striteri(
-				((t[i].nullify & 1) > 0 ? NULL : t[i].what)
-				,((t[i].nullify & 2) > 0 ? NULL : t[i].f)
-			);
+		char *what = ((t[i].nullify & 1) > 0 ? NULL : t[i].what);
+		void (*f)(unsigned int, char *) = ((t[i].nullify & 2) > 0 ? NULL : t[i].f);
+		ft_striteri(what, f);
 		#ifdef DEBUG
-		printf("%i [%s][%s]\n", i, res, t[i].res);
+		printf("%i %p %p\n", i, what, t[i].res);
+		if (what != NULL && (char *)t[i].res != NULL)
+			printf("[%s][%s]\n", what, t[i].res);
 		#endif
-		assert(strcmp(t[i].what, t[i].res) == 0);
+		if (what == (char *)t[i].res && what == NULL)
+			continue;
+		assert(what && (char *)t[i].res);
+		assert(strcmp(what, t[i].res) == 0);
 	}
 }
