@@ -6,7 +6,7 @@
 /*   By: inikulin <inikulin@student.42berlin.d      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/14 15:16:17 by inikulin          #+#    #+#             */
-/*   Updated: 2023/11/18 12:38:10 by inikulin         ###   ########.fr       */
+/*   Updated: 2023/11/18 16:43:53 by inikulin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,4 +48,5 @@ void	ft_striteri(char *s, void (*f)(unsigned int, char *));
 char	*ft_empty_string(void);
 char	*ft_itoa(int v);
 int	ft_is_in(const char c, const char *set);
+void	ft_putchar_fd(char c, int fd);
 #endif

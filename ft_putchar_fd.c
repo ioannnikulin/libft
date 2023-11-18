@@ -1,31 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   aux.c                                              :+:      :+:    :+:   */
+/*   ft_putchar_fd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: inikulin <inikulin@student.42berlin.d      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/14 15:57:31 by inikulin          #+#    #+#             */
-/*   Updated: 2023/11/18 16:47:30 by inikulin         ###   ########.fr       */
+/*   Created: 2023/11/13 19:01:40 by inikulin          #+#    #+#             */
+/*   Updated: 2023/11/18 16:29:37 by inikulin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
+#include <unistd.h>
 
-int	bad_alloc(int ret)
+void	ft_putchar_fd(char c, int fd)
 {
-	printf("ERROR: couldn't allocate memory for testing. Results unknown.\n");
-	return (ret);
-}
-
-int	segfault_expected(int ret)
-{
-	printf("ERROR: SEGFAULT EXPECTED!\n");
-	return (ret);
-}
-
-int	file_not_created(int ret)
-{
-	printf("ERROR: couldn't create file for testing.\n");
-	return (ret);
+	write(fd, &c, 1);
 }

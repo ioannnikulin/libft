@@ -6,7 +6,7 @@
 /*   By: inikulin <inikulin@student.42berlin.d      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/14 15:57:31 by inikulin          #+#    #+#             */
-/*   Updated: 2023/11/18 14:54:16 by inikulin         ###   ########.fr       */
+/*   Updated: 2023/11/18 16:44:44 by inikulin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,6 +71,8 @@ int	main(void)
 	ft_strmapi_test();
 	printf("striteri in testing\n");
 	ft_striteri_test();
+	printf("putchar_fd in testing\n");
+	ft_putchar_fd_test();
 	printf("All tests passed successfully!\n");
 	return (0);
 }

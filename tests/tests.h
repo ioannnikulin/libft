@@ -6,7 +6,7 @@
 /*   By: inikulin <inikulin@student.42berlin.d      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/14 15:58:51 by inikulin          #+#    #+#             */
-/*   Updated: 2023/11/18 12:35:58 by inikulin         ###   ########.fr       */
+/*   Updated: 2023/11/18 16:48:31 by inikulin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@
 
 int	bad_alloc(int ret);
 int	segfault_expected(int ret);
+int	file_not_created(int ret);
 void	ft_isalpha_test(void);
 void	ft_isdigit_test(void);
 void	ft_isalnum_test(void);
@@ -52,4 +53,5 @@ void	ft_split_test(void);
 void	ft_itoa_test(void);
 void	ft_striteri_test(void);
 void	ft_strmapi_test(void);
+void	ft_putchar_fd_test(void);
 #endif
