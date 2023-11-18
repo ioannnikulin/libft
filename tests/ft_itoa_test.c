@@ -6,13 +6,13 @@
 /*   By: inikulin <inikulin@student.42berlin.d      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/14 15:56:43 by inikulin          #+#    #+#             */
-/*   Updated: 2023/11/17 20:59:14 by inikulin         ###   ########.fr       */
+/*   Updated: 2023/11/18 14:51:58 by inikulin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "tests.h"
 #define SZ 5
-#define DEBUG
+//#define DEBUG
 
 typedef struct s_testcase
 {
@@ -35,5 +35,6 @@ void	ft_itoa_test(void)
 		printf("%i %s %lu\n\n", i, r, strlen(r));
 		#endif
 		assert(strcmp(r, t[i].res) == 0);
+		free(r);
 	}
 }

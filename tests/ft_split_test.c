@@ -6,7 +6,7 @@
 /*   By: inikulin <inikulin@student.42berlin.d      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/07 20:24:25 by inikulin          #+#    #+#             */
-/*   Updated: 2023/11/17 20:17:57 by inikulin         ###   ########.fr       */
+/*   Updated: 2023/11/18 12:17:25 by inikulin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,9 +52,11 @@ void	ft_split_test(void)
 			fflush(stdout);
 			#endif
 			assert(strcmp(res[j], t[i].res[j]) == 0);
+			free(res[j]);
 		}
 		#ifdef DEBUG
 		printf("\n");
 		#endif
+		free(res);
 	}
 }

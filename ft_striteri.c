@@ -1,53 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_itoa.c                                          :+:      :+:    :+:   */
+/*   ft_striteri.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: inikulin <inikulin@student.42berlin.d      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/13 19:01:40 by inikulin          #+#    #+#             */
-/*   Updated: 2023/11/18 14:51:43 by inikulin         ###   ########.fr       */
+/*   Updated: 2023/11/18 12:39:18 by inikulin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stddef.h>
-#include <stdlib.h>
 #include "libft.h"
 
-char	*ft_itoa(int n)
+void	ft_striteri(char *s, void (*f)(unsigned int, char *))
 {
-	char	buf[21];
-	size_t		c;
-	int	is_neg;
-	char	*res;
-	long	nn;
+	unsigned int	c;
 
-	if (n == 0)
+	if (!s || !f)
+		return ;
+	c = 0;
+	while (s[c])
 	{
-		res = malloc(2 * sizeof(char));
-		if (!res)
-			return (0);
-		ft_strlcpy(res, "0", 2);
-		return (res);
+		f(c, &s[c]);
+		c ++;
 	}
-	nn = n;
-	is_neg = 0;
-	c = 20;
-	ft_bzero(buf, 21);
-	if (nn < 0)
-	{
-		nn = -nn;
-		is_neg = 1;
-	}
-	while (nn > 0)
-	{
-		buf[-- c] = '0' + nn % 10;
-		nn /= 10;
-	}
-	res = malloc((is_neg + 20 - c) * sizeof(char));
-	if (!res)
-		return (0);
-	res[0] = '-';
-	ft_strlcpy(&res[is_neg], &buf[c], 21 - c);
-	return (res);
 }

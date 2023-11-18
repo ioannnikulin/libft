@@ -6,7 +6,7 @@
 /*   By: inikulin <inikulin@student.42berlin.d      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/14 15:56:31 by inikulin          #+#    #+#             */
-/*   Updated: 2023/11/17 18:33:41 by inikulin         ###   ########.fr       */
+/*   Updated: 2023/11/18 12:13:02 by inikulin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,5 +39,6 @@ void	ft_strtrim_test(void)
 		printf("%i [%s][%s]\n", i, res, t[i].res);
 		#endif
 		assert(strcmp(res, t[i].res) == 0);
+		free(res);
 	}
 }
