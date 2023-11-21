@@ -1,56 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstsize.c                                       :+:      :+:    :+:   */
+/*   ft_lstlast.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: inikulin <inikulin@student.42berlin.d      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/13 19:01:40 by inikulin          #+#    #+#             */
-/*   Updated: 2023/11/21 20:31:04 by inikulin         ###   ########.fr       */
+/*   Updated: 2023/11/21 20:43:10 by inikulin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 #include "libft.h"
 
-int	ft_lstsize(t_list *lst)
+t_list	*ft_lstlast(t_list *lst)
 {
-	t_list	*fast;
-	t_list	*slow;
-	t_list	*slow1;
-	int		len;
+	t_list	*cur;
+	int	lstlen;
 
-	if (lst == 0)
+	lstlen = ft_lstsize(lst);
+	if (!lstlen)
 		return (0);
-	if (lst->next == 0)
-		return (1);
-	if (lst->next->next == 0)
-		return (2);
-	fast = lst->next->next;
-	slow = lst->next;
-	len = 2;
-	while (fast != slow && fast != 0 && fast->next != 0)
-	{
-		fast = fast->next->next;
-		slow = slow->next;
-		len += 2;
-	}
-	if (fast == 0)
-		return (len);
-	if (fast->next == 0)
-		return (len + 1);
-	slow1 = lst;
-	len = 1;
-	while (slow != slow1)
-	{
-		slow1 = slow1->next;
-		slow = slow->next;
-		len ++;
-	}
-	while (slow->next != slow1)
-	{
-		slow = slow->next;
-		len ++;
-	}
-	return (len);
+	cur = lst;
+	while (-- lstlen)
+		cur = cur->next;
+	return (cur);
 }
