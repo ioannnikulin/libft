@@ -6,7 +6,7 @@
 /*   By: inikulin <inikulin@student.42berlin.d      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/14 15:58:51 by inikulin          #+#    #+#             */
-/*   Updated: 2023/11/18 17:27:43 by inikulin         ###   ########.fr       */
+/*   Updated: 2023/11/21 18:53:09 by inikulin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,4 +56,8 @@ void	ft_strmapi_test(void);
 void	ft_putchar_fd_test(void);
 void	ft_putstr_fd_test(void);
 void	ft_putendl_fd_test(void);
+void	ft_lstnew_test(void);
+void	ft_lstadd_front_test(void);
+void	ft_lstclear_test(void);
+void	ft_lst_generate_test(void);
 #endif
