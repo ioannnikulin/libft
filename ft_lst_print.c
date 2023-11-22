@@ -1,32 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstclear.c                                      :+:      :+:    :+:   */
+/*   ft_lst_print.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: inikulin <inikulin@student.42berlin.d      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/13 19:01:40 by inikulin          #+#    #+#             */
-/*   Updated: 2023/11/22 17:21:10 by inikulin         ###   ########.fr       */
+/*   Updated: 2023/11/22 17:13:14 by inikulin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
+#include <stdio.h>
 #include "libft.h"
 
-void	ft_lstclear(t_list **lst, void (*del)(void *))
+int	ft_lst_print(t_list *lst)
 {
-	t_list	*cur;
-	t_list	*n;
 	int	lstlen;
 
-	lstlen = ft_lstsize(*lst);
-	cur = *lst;
+	lstlen = ft_lstsize(lst);
 	while (lstlen --)
 	{
-		n = cur->next;
-		del(cur->content);
-		free(cur);
-		cur = n;
+		printf("%p [%s] -> ", lst, (char *)lst->content);
+		lst = lst->next;
 	}
-	*lst = 0;
+	printf("%p\n", lst);
+	return (lstlen);
 }
