@@ -6,7 +6,7 @@
 /*   By: inikulin <inikulin@student.42berlin.d      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/14 15:57:31 by inikulin          #+#    #+#             */
-/*   Updated: 2023/11/22 17:04:54 by inikulin         ###   ########.fr       */
+/*   Updated: 2023/11/22 19:36:13 by inikulin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,6 +93,8 @@ int	main(void)
 	ft_lstadd_back_test();
 	printf("ft_lstdelone in testing\n");
 	ft_lstdelone_test();
+	printf("ft_lstmap in testing\n");
+	ft_lstmap_test();
 	printf("All tests passed successfully!\n");
 	return (0);
 }
