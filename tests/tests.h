@@ -6,7 +6,7 @@
 /*   By: inikulin <inikulin@student.42berlin.d      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/14 15:58:51 by inikulin          #+#    #+#             */
-/*   Updated: 2023/11/22 19:35:58 by inikulin         ###   ########.fr       */
+/*   Updated: 2023/11/22 19:54:47 by inikulin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,4 +65,5 @@ void	ft_lstlast_test(void);
 void	ft_lstadd_back_test(void);
 void	ft_lstdelone_test(void);
 void	ft_lstmap_test(void);
+void	ft_lstiter_test(void);
 #endif

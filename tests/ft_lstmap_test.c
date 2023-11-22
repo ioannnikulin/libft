@@ -6,7 +6,7 @@
 /*   By: inikulin <inikulin@student.42berlin.d      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/14 15:56:43 by inikulin          #+#    #+#             */
-/*   Updated: 2023/11/22 19:48:57 by inikulin         ###   ########.fr       */
+/*   Updated: 2023/11/22 20:15:56 by inikulin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,12 +23,12 @@ typedef struct s_testcase
 	char	*res[20];
 }	t_testcase;
 
-void	*a(void *oc)
+static void	*a(void *oc)
 {
 	return (ft_strdup((char*)oc));
 }
 
-void	*b(void *oc)
+static void	*b(void *oc)
 {
 	if (ft_isdigit(((char*)oc)[0]))
 		return (ft_strdup("0"));
@@ -47,13 +47,13 @@ void	ft_lstmap_test(void)
 	t[4] = (t_testcase){-1, a, free, {"hello", NULL}, {"hello", NULL}};
 	t[5] = (t_testcase){0, a, free, {"hello", NULL}, {"hello", NULL}};
 	t[6] = (t_testcase){-1, a, free, {NULL}, {NULL}};
-	t[7] = (t_testcase){-1, a, free, {"hello", "i", "", NULL}, {"hello", "i", "", NULL}};
-	t[8] = (t_testcase){0, a, free, {"hello", "i", "", NULL}, {"hello", "i", "", NULL}};
-	t[9] = (t_testcase){1, a, free, {"hello", "i", "", NULL}, {"hello", "i", "", NULL}};
-	t[10] = (t_testcase){2, a, free, {"hello", "i", "", NULL}, {"hello", "i", "", NULL}};
-	t[11] = (t_testcase){-1, a, free, {"hello", NULL}, {"hello", NULL}};
-	t[12] = (t_testcase){0, a, free, {"hello", NULL}, {"hello", NULL}};
-	t[13] = (t_testcase){-1, a, free, {NULL}, {NULL}};
+	t[7] = (t_testcase){-1, b, free, {"hello", "1", "", NULL}, {"a", "0", ".", NULL}};
+	t[8] = (t_testcase){0, b, free, {"hello", "2", "", NULL}, {"a", "0", ".", NULL}};
+	t[9] = (t_testcase){1, b, free, {"hello", "3", "", NULL}, {"a", "0", ".", NULL}};
+	t[10] = (t_testcase){2, b, free, {"hello", "4", "", NULL}, {"a", "0", ".", NULL}};
+	t[11] = (t_testcase){-1, b, free, {"hello", NULL}, {"a", NULL}};
+	t[12] = (t_testcase){0, b, free, {"hello", NULL}, {"a", NULL}};
+	t[13] = (t_testcase){-1, b, free, {NULL}, {NULL}};
 	for (int i = 0; i <  SZ; i ++)
 	{
 #ifdef DEBUG
@@ -66,10 +66,10 @@ void	ft_lstmap_test(void)
 #ifdef DEBUG
 		ft_lst_print(n);
 #endif
-		for (int j = 0; t[i].texts[j] != NULL; j ++)
+		for (int j = 0; t[i].res[j] != NULL; j ++)
 		{
 			assert(n);
-			assert(strcmp(n->content, t[i].texts[j]) == 0);
+			assert(strcmp(n->content, t[i].res[j]) == 0);
 			if (t[i].end_to == j)
 				loop_start = n;
 			n = n->next;
