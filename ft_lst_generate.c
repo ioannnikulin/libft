@@ -6,19 +6,35 @@
 /*   By: inikulin <inikulin@student.42berlin.d      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/13 19:01:40 by inikulin          #+#    #+#             */
-/*   Updated: 2023/11/21 19:05:10 by inikulin         ###   ########.fr       */
+/*   Updated: 2023/11/22 20:45:57 by inikulin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 #include "libft.h"
 
-static void	clear(void *s)
+static int	make_worm(t_list **root, char *texts[])
 {
-	char	*c;
+	int		idx;
+	t_list	*curnode;
 
-	c = (char*)s;
-	free(s);//c);
+	*root = ft_lstnew(ft_strdup(texts[0]));
+	if (!*root)
+		return (-1);
+	idx = 1;
+	curnode = *root;
+	while (texts[idx])
+	{
+		curnode->next = ft_lstnew(ft_strdup(texts[idx]));
+		if (!curnode->next)
+		{
+			ft_lstclear(root, free);
+			return (-1);
+		}
+		idx ++;
+		curnode = curnode->next;
+	}
+	return (idx);
 }
 
 t_list	*ft_lst_generate(char *texts[], int end_to)
@@ -26,34 +42,21 @@ t_list	*ft_lst_generate(char *texts[], int end_to)
 	t_list	*root;
 	t_list	*curnode;
 	t_list	*tail;
-	int	idx;
+	int		idx;
 
 	if (!texts || !texts[0])
 		return (0);
-	root = ft_lstnew(ft_strdup(texts[0]));
-	if (!root)
+	idx = make_worm(&root, texts);
+	if (idx == -1)
 		return (0);
-	idx = 1;
-	curnode = root;
-	while (texts[idx])
-	{
-		curnode->next = ft_lstnew(ft_strdup(texts[idx]));
-		if (!curnode->next)
-		{
-			ft_lstclear(&root, clear);
-			return (0);
-		}
-		idx ++;
-		curnode = curnode->next;
-	}
 	if (end_to >= idx)
 	{
-		ft_lstclear(&root, clear);
+		ft_lstclear(&root, free);
 		return (0);
 	}
 	if (end_to == -1)
 		return (root);
-	tail = curnode;
+	tail = ft_lstlast(root);
 	idx = -1;
 	curnode = root;
 	while (++ idx < end_to)

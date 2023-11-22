@@ -6,26 +6,19 @@
 /*   By: inikulin <inikulin@student.42berlin.d      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/13 19:01:40 by inikulin          #+#    #+#             */
-/*   Updated: 2023/11/21 20:31:04 by inikulin         ###   ########.fr       */
+/*   Updated: 2023/11/22 20:53:14 by inikulin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 #include "libft.h"
 
-int	ft_lstsize(t_list *lst)
+static int	phase1(t_list *lst, t_list **meet)
 {
 	t_list	*fast;
 	t_list	*slow;
-	t_list	*slow1;
 	int		len;
 
-	if (lst == 0)
-		return (0);
-	if (lst->next == 0)
-		return (1);
-	if (lst->next->next == 0)
-		return (2);
 	fast = lst->next->next;
 	slow = lst->next;
 	len = 2;
@@ -39,7 +32,14 @@ int	ft_lstsize(t_list *lst)
 		return (len);
 	if (fast->next == 0)
 		return (len + 1);
-	slow1 = lst;
+	*meet = fast;
+	return (-len);
+}
+
+static int	phase2(t_list *slow1, t_list *slow)
+{
+	int	len;
+
 	len = 1;
 	while (slow != slow1)
 	{
@@ -53,4 +53,21 @@ int	ft_lstsize(t_list *lst)
 		len ++;
 	}
 	return (len);
+}
+
+int	ft_lstsize(t_list *lst)
+{
+	t_list	*meet;
+	int		len;
+
+	if (lst == 0)
+		return (0);
+	if (lst->next == 0)
+		return (1);
+	if (lst->next->next == 0)
+		return (2);
+	len = phase1(lst, &meet);
+	if (len > 0)
+		return (len);
+	return (phase2(lst, meet));
 }

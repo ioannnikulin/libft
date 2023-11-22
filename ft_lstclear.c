@@ -6,7 +6,7 @@
 /*   By: inikulin <inikulin@student.42berlin.d      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/13 19:01:40 by inikulin          #+#    #+#             */
-/*   Updated: 2023/11/22 17:21:10 by inikulin         ###   ########.fr       */
+/*   Updated: 2023/11/22 20:33:11 by inikulin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	ft_lstclear(t_list **lst, void (*del)(void *))
 {
 	t_list	*cur;
 	t_list	*n;
-	int	lstlen;
+	int		lstlen;
 
 	lstlen = ft_lstsize(*lst);
 	cur = *lst;

@@ -6,7 +6,7 @@
 /*   By: inikulin <inikulin@student.42berlin.d      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/13 19:01:40 by inikulin          #+#    #+#             */
-/*   Updated: 2023/11/16 17:38:24 by inikulin         ###   ########.fr       */
+/*   Updated: 2023/11/22 21:09:11 by inikulin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 char	*ft_strrchr(const char *s, int c)
 {
-	size_t	cur;
-	size_t	ret;
+	size_t			cur;
+	size_t			ret;
 	unsigned char	cc;
 
 	cur = 0;

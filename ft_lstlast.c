@@ -6,7 +6,7 @@
 /*   By: inikulin <inikulin@student.42berlin.d      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/13 19:01:40 by inikulin          #+#    #+#             */
-/*   Updated: 2023/11/21 20:43:10 by inikulin         ###   ########.fr       */
+/*   Updated: 2023/11/22 20:42:27 by inikulin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 t_list	*ft_lstlast(t_list *lst)
 {
 	t_list	*cur;
-	int	lstlen;
+	int		lstlen;
 
 	lstlen = ft_lstsize(lst);
 	if (!lstlen)

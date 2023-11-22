@@ -6,7 +6,7 @@
 /*   By: inikulin <inikulin@student.42berlin.d      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/13 19:01:40 by inikulin          #+#    #+#             */
-/*   Updated: 2023/11/22 19:48:39 by inikulin         ###   ########.fr       */
+/*   Updated: 2023/11/22 20:45:01 by inikulin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,9 @@
 
 static void	connect_tail(t_list *res, t_list *res_tail, t_list *orig)
 {
-	t_list	*orig_loop_to = ft_lstlast(orig)->next;
+	t_list	*orig_loop_to;
+
+	orig_loop_to = ft_lstlast(orig)->next;
 	if (!orig_loop_to)
 		return ;
 	while (orig != orig_loop_to)
@@ -31,7 +33,7 @@ t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void*))
 	t_list	*iter_res;
 	t_list	*iter_orig;
 	t_list	*nnode;
-	int	lstlen;
+	int		lstlen;
 
 	lstlen = ft_lstsize(lst);
 	if (!lstlen)
