@@ -6,7 +6,7 @@
 /*   By: inikulin <inikulin@student.42berlin.d      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/13 19:01:40 by inikulin          #+#    #+#             */
-/*   Updated: 2023/11/22 20:45:01 by inikulin         ###   ########.fr       */
+/*   Updated: 2023/11/23 11:48:49 by inikulin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,12 @@ static void	connect_tail(t_list *res, t_list *res_tail, t_list *orig)
 	res_tail->next = res;
 }
 
+static t_list	*fail(t_list **res, void (*del)(void*))
+{
+	ft_lstclear(res, del);
+	return (0);
+}
+
 t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void*))
 {
 	t_list	*res;
@@ -36,23 +42,19 @@ t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void*))
 	int		lstlen;
 
 	lstlen = ft_lstsize(lst);
-	if (!lstlen)
+	if (!(lstlen --))
 		return (0);
-	res = 0;
-	iter_orig = lst;
+	res = ft_lstnew(f(lst->content));
+	if (!res)
+		return (0);
+	iter_orig = lst->next;
 	iter_res = res;
 	while (lstlen --)
 	{
 		nnode = ft_lstnew(f(iter_orig->content));
 		if (!nnode)
-		{
-			ft_lstclear(&res, del);
-			return (0);
-		}
-		if (res)
-			iter_res->next = nnode;
-		else
-			res = nnode;
+			return (fail(&res, del));
+		iter_res->next = nnode;
 		iter_orig = iter_orig->next;
 		iter_res = nnode;
 	}

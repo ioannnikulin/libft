@@ -6,13 +6,13 @@
 /*   By: inikulin <inikulin@student.42berlin.d      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/13 19:01:40 by inikulin          #+#    #+#             */
-/*   Updated: 2023/11/22 21:13:03 by inikulin         ###   ########.fr       */
+/*   Updated: 2023/11/23 11:43:17 by inikulin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stddef.h>
 
-static char	*try(char *where, char *what, size_t cb)
+static char	*try(char *where, char *what, size_t cb, size_t len)
 {
 	size_t	cl;
 
@@ -44,7 +44,7 @@ char	*ft_strnstr(const char *big, const char *little, size_t len)
 	what = (char *)little;
 	while (cb < len && where[cb])
 	{
-		res = try(where, what, cb);
+		res = try(where, what, cb, len);
 		if (res)
 			return (res);
 		cb ++;
