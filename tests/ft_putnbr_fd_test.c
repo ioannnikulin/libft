@@ -6,14 +6,14 @@
 /*   By: inikulin <inikulin@student.42berlin.d      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/18 14:40:54 by inikulin          #+#    #+#             */
-/*   Updated: 2023/11/23 14:12:10 by inikulin         ###   ########.fr       */
+/*   Updated: 2023/11/23 14:33:38 by inikulin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <fcntl.h>
 #include <unistd.h>
 #include "tests.h"
-//#define DEBUG
+#define DEBUG
 
 #define SZ 5
 
