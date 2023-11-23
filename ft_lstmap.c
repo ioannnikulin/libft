@@ -6,31 +6,43 @@
 /*   By: inikulin <inikulin@student.42berlin.d      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/13 19:01:40 by inikulin          #+#    #+#             */
-/*   Updated: 2023/11/23 11:48:49 by inikulin         ###   ########.fr       */
+/*   Updated: 2023/11/23 15:22:34 by inikulin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static void	connect_tail(t_list *res, t_list *res_tail, t_list *orig)
+static t_list	*connect_tail(t_list **res, t_list *res_tail, t_list *orig)
 {
 	t_list	*orig_loop_to;
 
 	orig_loop_to = ft_lstlast(orig)->next;
 	if (!orig_loop_to)
-		return ;
+		return (*res);
 	while (orig != orig_loop_to)
 	{
-		res = res->next;
+		*res = (*res)->next;
 		orig = orig->next;
 	}
-	res_tail->next = res;
+	res_tail->next = *res;
+	return (*res);
 }
 
-static t_list	*fail(t_list **res, void (*del)(void*))
+static t_list	*m(void *(*f)(void *), void (*d)(void*), void *o, t_list **r)
 {
-	ft_lstclear(res, del);
-	return (0);
+	void	*nc;
+	t_list	*nnode;
+
+	nc = f(o);
+	nnode = ft_lstnew(nc);
+	if (!nnode)
+	{
+		d(nc);
+		if (*r)
+			ft_lstclear(r, d);
+		return (0);
+	}
+	return (nnode);
 }
 
 t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void*))
@@ -38,26 +50,24 @@ t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void*))
 	t_list	*res;
 	t_list	*iter_res;
 	t_list	*iter_orig;
-	t_list	*nnode;
 	int		lstlen;
 
 	lstlen = ft_lstsize(lst);
 	if (!(lstlen --))
 		return (0);
-	res = ft_lstnew(f(lst->content));
+	res = 0;
+	res = m(f, del, lst->content, &res);
 	if (!res)
 		return (0);
 	iter_orig = lst->next;
 	iter_res = res;
 	while (lstlen --)
 	{
-		nnode = ft_lstnew(f(iter_orig->content));
-		if (!nnode)
-			return (fail(&res, del));
-		iter_res->next = nnode;
+		iter_res->next = m(f, del, iter_orig->content, &res);
+		if (!(iter_res->next))
+			return (0);
 		iter_orig = iter_orig->next;
-		iter_res = nnode;
+		iter_res = iter_res->next;
 	}
-	connect_tail(res, ft_lstlast(res), lst);
-	return (res);
+	return (connect_tail(&res, ft_lstlast(res), lst));
 }

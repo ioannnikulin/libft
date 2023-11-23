@@ -6,7 +6,7 @@
 /*   By: inikulin <inikulin@student.42berlin.d      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/13 19:01:40 by inikulin          #+#    #+#             */
-/*   Updated: 2023/11/23 14:29:21 by inikulin         ###   ########.fr       */
+/*   Updated: 2023/11/23 14:40:34 by inikulin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,11 @@
 #include <unistd.h>
 #include "libft.h"
 
-static void	go(long nn, int is_neg, char buf[21], int fd)
+static void	go(long long nn, int is_neg, char buf[21], int fd)
 {
 	size_t	c;
 
-	c = 20;
+	c = 21;
 	while (nn > 0)
 	{
 		buf[-- c] = '0' + nn % 10;
@@ -31,9 +31,9 @@ static void	go(long nn, int is_neg, char buf[21], int fd)
 
 void	ft_putnbr_fd(int n, int fd)
 {
-	char	buf[21];
-	int		is_neg;
-	long	nn;
+	char		buf[21];
+	int			is_neg;
+	long long	nn;
 
 	nn = n;
 	is_neg = 0;
