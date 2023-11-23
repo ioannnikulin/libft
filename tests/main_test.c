@@ -6,7 +6,7 @@
 /*   By: inikulin <inikulin@student.42berlin.d      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/14 15:57:31 by inikulin          #+#    #+#             */
-/*   Updated: 2023/11/22 19:54:36 by inikulin         ###   ########.fr       */
+/*   Updated: 2023/11/23 14:11:19 by inikulin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,6 +77,8 @@ int	main(void)
 	ft_putstr_fd_test();
 	printf("putendl_fd in testing\n");
 	ft_putendl_fd_test();
+	printf("putnbr_fd in testing\n");
+	ft_putnbr_fd_test();
 	printf("lstnew in testing\n");
 	ft_lstnew_test();
 	printf("lstsize in testing\n");
