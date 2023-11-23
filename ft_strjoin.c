@@ -6,7 +6,7 @@
 /*   By: inikulin <inikulin@student.42berlin.d      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/13 19:01:40 by inikulin          #+#    #+#             */
-/*   Updated: 2023/11/17 17:33:48 by inikulin         ###   ########.fr       */
+/*   Updated: 2023/11/23 13:41:54 by inikulin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,6 @@ char	*ft_strjoin(const char *s1, const char *s2)
 		return (0);
 	ft_strlcpy(res, s1, l + 1);
 	ft_strlcpy(&res[l], s2, r + 1);
-	res[l + r + 1] = 0;
+	res[l + r] = 0;
 	return (res);
 }

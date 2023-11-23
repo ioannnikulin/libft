@@ -6,7 +6,7 @@
 /*   By: inikulin <inikulin@student.42berlin.d      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/13 19:01:40 by inikulin          #+#    #+#             */
-/*   Updated: 2023/11/17 17:53:10 by inikulin         ###   ########.fr       */
+/*   Updated: 2023/11/23 12:18:10 by inikulin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,9 @@ char	*ft_substr(const char *s, unsigned int start, size_t len)
 	l = ft_strlen((char *)s);
 	if (l < start)
 		return (ft_empty_string());
-	if (l > len)
+	if (start + len > l)
+		l = l - start;
+	else
 		l = len;
 	res = malloc((l + 1) * sizeof(char));
 	if (!res)

@@ -6,14 +6,14 @@
 /*   By: inikulin <inikulin@student.42berlin.d      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/07 20:24:25 by inikulin          #+#    #+#             */
-/*   Updated: 2023/11/22 21:07:43 by inikulin         ###   ########.fr       */
+/*   Updated: 2023/11/23 13:53:37 by inikulin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 #include "libft.h"
 
-int	count_words(const char *pp, const char *charset)
+static int	count_words(const char *pp, const char *charset)
 {
 	int		word_qtty;
 	char	*p;
@@ -39,7 +39,7 @@ int	count_words(const char *pp, const char *charset)
 	return (word_qtty);
 }
 
-void	parse_word(char **res, const char **f, const char *charset)
+static void	parse_word(char **res, const char **f, const char *charset)
 {
 	int		cwlen;
 	char	**from;
@@ -50,6 +50,8 @@ void	parse_word(char **res, const char **f, const char *charset)
 	cwlen = 0;
 	while ((*from)[cwlen] && !ft_is_in((*from)[cwlen], charset))
 		cwlen ++;
+	if (cwlen == 0)
+		return ;
 	(*res) = (char *) malloc((cwlen + 1) * sizeof(char));
 	if (*res == 0)
 		return ;
@@ -60,6 +62,23 @@ void	parse_word(char **res, const char **f, const char *charset)
 		(*from)++;
 	}
 	(*res)[cwlen] = 0;
+}
+
+static int	check_edges(char **res, int *cwi)
+{
+	if (!res[*cwi])
+	{
+		while (-- (*cwi) > -1)
+			free(res[*cwi]);
+		free(res);
+		return (1);
+	}
+	if (!res[*cwi][0])
+	{
+		free(res[*cwi]);
+		(*cwi)--;
+	}
+	return (0);
 }
 
 char	**ft_split_set(const char *str, const char *charset)
@@ -79,12 +98,8 @@ char	**ft_split_set(const char *str, const char *charset)
 	while (*str && cwi < word_qtty)
 	{
 		parse_word(&res[cwi], &str, charset);
-		if (!res[cwi])
-		{
-			while (-- cwi > -1)
-				free(res[cwi]);
+		if (check_edges(res, &cwi))
 			return (0);
-		}
 		cwi ++;
 	}
 	return (res);

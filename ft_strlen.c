@@ -6,13 +6,13 @@
 /*   By: inikulin <inikulin@student.42berlin.d      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/13 19:01:40 by inikulin          #+#    #+#             */
-/*   Updated: 2023/11/15 16:58:35 by inikulin         ###   ########.fr       */
+/*   Updated: 2023/11/23 12:10:57 by inikulin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stddef.h>
 
-size_t	ft_strlen(char *c)
+size_t	ft_strlen(const char *c)
 {
 	size_t	res;
 

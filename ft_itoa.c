@@ -6,7 +6,7 @@
 /*   By: inikulin <inikulin@student.42berlin.d      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/13 19:01:40 by inikulin          #+#    #+#             */
-/*   Updated: 2023/11/22 20:41:55 by inikulin         ###   ########.fr       */
+/*   Updated: 2023/11/23 13:41:29 by inikulin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ static char	*go(long nn, int is_neg, size_t c, char buf[21])
 		buf[-- c] = '0' + nn % 10;
 		nn /= 10;
 	}
-	res = malloc((is_neg + 20 - c) * sizeof(char));
+	res = malloc((is_neg + 21 - c) * sizeof(char));
 	if (!res)
 		return (0);
 	res[0] = '-';
