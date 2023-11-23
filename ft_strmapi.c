@@ -6,13 +6,24 @@
 /*   By: inikulin <inikulin@student.42berlin.d      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/13 19:01:40 by inikulin          #+#    #+#             */
-/*   Updated: 2023/11/18 15:03:15 by inikulin         ###   ########.fr       */
+/*   Updated: 2023/11/23 15:55:12 by inikulin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stddef.h>
 #include <stdlib.h>
 #include "libft.h"
+
+static char	*ft_empty_string(void)
+{
+	char	*res;
+
+	res = malloc(1);
+	if (!res)
+		return (0);
+	res[0] = 0;
+	return (res);
+}
 
 char	*ft_strmapi(const char *s, char (*f)(unsigned int, char))
 {
