@@ -6,7 +6,7 @@
 /*   By: inikulin <inikulin@student.42berlin.d      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/13 19:01:40 by inikulin          #+#    #+#             */
-/*   Updated: 2023/11/23 15:22:34 by inikulin         ###   ########.fr       */
+/*   Updated: 2023/11/24 17:51:27 by inikulin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,16 +15,18 @@
 static t_list	*connect_tail(t_list **res, t_list *res_tail, t_list *orig)
 {
 	t_list	*orig_loop_to;
+	t_list	*res_iter;
 
 	orig_loop_to = ft_lstlast(orig)->next;
 	if (!orig_loop_to)
 		return (*res);
+	res_iter = *res;
 	while (orig != orig_loop_to)
 	{
-		*res = (*res)->next;
+		res_iter = res_iter->next;
 		orig = orig->next;
 	}
-	res_tail->next = *res;
+	res_tail->next = res_iter;
 	return (*res);
 }
 

@@ -6,7 +6,7 @@
 /*   By: inikulin <inikulin@student.42berlin.d      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/14 15:56:43 by inikulin          #+#    #+#             */
-/*   Updated: 2023/11/23 11:49:11 by inikulin         ###   ########.fr       */
+/*   Updated: 2023/11/24 17:51:41 by inikulin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,10 +64,14 @@ void	ft_lstmap_test(void)
 		t_list *n = ft_lstmap(src, t[i].f, t[i].del);
 		t_list *loop_start = NULL;
 #ifdef DEBUG
+		ft_lst_print(src);
 		ft_lst_print(n);
 #endif
 		for (int j = 0; t[i].res[j] != NULL; j ++)
 		{
+#ifdef DEBUG
+			printf("\t%i [%s] [%s]\n", j, (char*)n->content, t[i].res[j]);
+#endif
 			assert(n);
 			assert(strcmp(n->content, t[i].res[j]) == 0);
 			if (t[i].end_to == j)
