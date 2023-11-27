@@ -6,7 +6,7 @@
 /*   By: inikulin <inikulin@student.42berlin.d      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/24 12:46:27 by inikulin          #+#    #+#             */
-/*   Updated: 2023/11/27 13:55:10 by inikulin         ###   ########.fr       */
+/*   Updated: 2023/11/27 16:09:12 by inikulin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,12 +15,12 @@
 
 int	put_p(char **c, va_list *argv, int fd, t_params params)
 {
-	size_t			pure_len;
-	size_t			res_len;
-	char			s[MX];
+	size_t				pure_len;
+	size_t				res_len;
+	char				s[MX];
 	unsigned long long	p;
 
-	(*c) ++;
+	(*c)++;
 	p = va_arg(*argv, unsigned long long);
 	params.sign_mandatory = 0;
 	params.hex_prefix = 1;

@@ -6,7 +6,7 @@
 /*   By: inikulin <inikulin@student.42berlin.d      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/24 12:46:27 by inikulin          #+#    #+#             */
-/*   Updated: 2023/11/27 13:57:17 by inikulin         ###   ########.fr       */
+/*   Updated: 2023/11/27 19:11:30 by inikulin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,12 +15,13 @@
 
 int	put_u(char **c, va_list *argv, int fd, t_params params)
 {
-	size_t			pure_len;
-	size_t			res_len;
-	char			s[MX];
-	int	p;
+	size_t	pure_len;
+	size_t	res_len;
+	char	s[MX];
+	int		p;
 
-	(*c) ++;
+	(*c)++;
+	params.hex_prefix = 0;
 	p = va_arg(*argv, int);
 	pure_len = ft_lltoa_base(p, "0123456789", s);
 	res_len = pad_n_put(s, pure_len, fd, params);

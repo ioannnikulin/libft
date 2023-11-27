@@ -32,7 +32,7 @@ re: fclean all
 #==============================================================================
 
 $(TESTOBJS): %.o: %.c
-	$(CC) $(CFLAGS) -c $< -o $@ $(INCLUDES) -g
+	$(CC) -c $< -o $@ $(INCLUDES) -g
 
 testfclean:
 	rm -f $(TESTOBJS)

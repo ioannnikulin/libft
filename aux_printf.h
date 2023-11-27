@@ -6,7 +6,7 @@
 /*   By: inikulin <inikulin@student.42berlin.d      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/24 12:46:27 by inikulin          #+#    #+#             */
-/*   Updated: 2023/11/27 14:03:39 by inikulin         ###   ########.fr       */
+/*   Updated: 2023/11/27 18:02:13 by inikulin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #ifndef AUX_PRINTF_H
@@ -23,7 +23,8 @@ typedef struct s_params
 	unsigned char	space_before_positive;
 	unsigned char	sign_mandatory;
 	unsigned char	capital_hex;
-	size_t			precision;
+	int				precision;
+	int				min_width;
 
 }	t_params;
 
