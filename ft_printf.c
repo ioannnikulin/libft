@@ -6,14 +6,48 @@
 /*   By: inikulin <inikulin@student.42berlin.d      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/24 12:46:27 by inikulin          #+#    #+#             */
-/*   Updated: 2023/11/24 18:27:29 by inikulin         ###   ########.fr       */
+/*   Updated: 2023/11/27 14:20:49 by inikulin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdarg.h>
 #include <unistd.h>
-#include "libft/libft.h"
+#include "libft.h"
 #include "aux_printf.h"
+
+static void	single_char_param(char **c, char orig, unsigned char *set)
+{
+	if (**c && **c == orig)
+	{
+		(*set) = 1;
+		(*c) ++;
+	}
+}
+
+static t_params	parse_params(char **c)
+{
+	t_params	r;
+	char		**cprev;
+
+	cprev = 0;
+	while (cprev != c)
+	{
+		cprev = c;
+		single_char_param(c, '-', &r.left_space_pad);
+		single_char_param(c, '0', &r.left_zero_pad);
+		single_char_param(c, '#', &r.hex_prefix);
+		single_char_param(c, ' ', &r.space_before_positive);
+		single_char_param(c, '+', &r.sign_mandatory);
+		single_char_param(c, '-', &r.left_space_pad);
+		single_char_param(c, '-', &r.left_space_pad);
+		if (**c > '0' && **c <= '9')
+		{
+			while (ft_isdigit(**c))
+				r.precision = r.precision * 10 + (*((*c) ++)) - '0';
+		}
+	}
+	return (r);
+}
 
 int	parse_conversion(char **c, va_list *argv, int fd)
 {
@@ -47,11 +81,12 @@ int	ft_printf(const char *s, ...)
 	va_list	argv;
 
 	va_start(argv, s);
-	c = s;
+	c = (char*)s;
 	normal = 0;
-	while (!c)
+	res = 0;
+	while (*c)
 	{
-		if (c == '%')
+		if (*c == '%')
 		{
 			write(1, (c - normal), normal);
 			res += normal;

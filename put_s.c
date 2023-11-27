@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_put_s.c                                         :+:      :+:    :+:   */
+/*   put_s.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: inikulin <inikulin@student.42berlin.d      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/24 12:46:27 by inikulin          #+#    #+#             */
-/*   Updated: 2023/11/24 18:29:05 by inikulin         ###   ########.fr       */
+/*   Updated: 2023/11/27 13:55:20 by inikulin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ int	put_s(char **c, va_list *argv, int fd, t_params params)
 	char	*s;
 
 	(*c) ++;
-	s = va_arg(argv, char *);
+	s = va_arg(*argv, char *);
 	l = ft_strlen(s);
 	if (params.precision && params.precision < l)
 		l = params.precision;

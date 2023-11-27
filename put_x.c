@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_put_x.c                                         :+:      :+:    :+:   */
+/*   put_x.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: inikulin <inikulin@student.42berlin.d      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/24 12:46:27 by inikulin          #+#    #+#             */
-/*   Updated: 2023/11/24 19:16:16 by inikulin         ###   ########.fr       */
+/*   Updated: 2023/11/27 13:55:34 by inikulin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ int	put_x(char **c, va_list *argv, int fd, t_params params)
 	char	s[MX];
 	int		p;
 
-	p = va_arg(argv, int);
+	p = va_arg(*argv, int);
 	if (**c == 'X')
 		params.capital_hex = 1;
 	(*c) ++;
