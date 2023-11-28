@@ -6,7 +6,7 @@
 /*   By: inikulin <inikulin@student.42berlin.d      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/24 12:46:27 by inikulin          #+#    #+#             */
-/*   Updated: 2023/11/27 18:02:13 by inikulin         ###   ########.fr       */
+/*   Updated: 2023/11/28 18:03:55 by inikulin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #ifndef AUX_PRINTF_H
@@ -28,6 +28,7 @@ typedef struct s_params
 
 }	t_params;
 
+int	parse_conversion(char **c, va_list *argv, int fd);
 int	put_c(char **c, va_list *argv, int fd, t_params params);
 int	put_s(char **c, va_list *argv, int fd, t_params params);
 int	put_p(char **c, va_list *argv, int fd, t_params params);
@@ -35,5 +36,5 @@ int	put_d(char **c, va_list *argv, int fd, t_params params);
 int	put_u(char **c, va_list *argv, int fd, t_params params);
 int	put_x(char **c, va_list *argv, int fd, t_params params);
 int	put_percent(char **c, va_list *argv, int fd, t_params params);
-int	pad_n_put(char *c, size_t l, int fd, t_params params);
+int	pad_n_put(char *c, int l, int fd, t_params params);
 #endif

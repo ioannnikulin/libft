@@ -6,7 +6,7 @@
 /*   By: inikulin <inikulin@student.42berlin.d      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/27 14:00:01 by inikulin          #+#    #+#             */
-/*   Updated: 2023/11/27 18:59:47 by inikulin         ###   ########.fr       */
+/*   Updated: 2023/11/28 17:59:06 by inikulin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -127,7 +127,110 @@ int	b8(void)
 	return ft_printf("hello%-# 0+3.4i world\n", 12435);
 }
 
-#define SZ 9
+int	a9(void)
+{
+	return printf("hello%#0+3.4d world\n", 12435);
+}
+
+int	b9(void)
+{
+	return ft_printf("hello%#0+3.4d world\n", 12435);
+}
+
+int tst_g = 0;
+
+int	a10(void)
+{
+	return printf("hello%##0+3.4p world\n", &tst_g);
+}
+
+int	b10(void)
+{
+	return ft_printf("hello%##0+3.4p world\n", &tst_g);
+}
+
+int	a11(void)
+{
+	return printf("hel%%lo%-# 0+4.3p world\n", 12435);
+}
+
+int	b11(void)
+{
+	return ft_printf("hel%%lo%-# 0+4.3p world\n", 12435);
+}
+
+int	a12(void)
+{
+	return printf("hel%%lo%-# -0+-4.3u world\n", 12435);
+}
+
+int	b12(void)
+{
+	return ft_printf("hel%%lo%-# -0+-4.3u world\n", 12435);
+}
+
+int	a13(void)
+{
+	return printf("hel%%lo%-# -0+-4.3x world\n", 12435);
+}
+
+int	b13(void)
+{
+	return ft_printf("hel%%lo%-# -0+-4.3x world\n", 12435);
+}
+
+int	a14(void)
+{
+	return printf("hel%%lo% 3.4u world\n", 12435);
+}
+
+int	b14(void)
+{
+	return ft_printf("hel%%lo% 3.4u world\n", 12435);
+}
+
+int	a15(void)
+{
+	return printf("hel%%lo% 3.4X world\n", 12435);
+}
+
+int	b15(void)
+{
+	return ft_printf("hel%%lo% 3.4X world\n", 12435);
+}
+
+int	a16(void)
+{
+	return printf("hel%%lo%## 3.4X world\n", -12435);
+}
+
+int	b16(void)
+{
+	return ft_printf("hel%%lo%## 3.4X world\n", -12435);
+}
+
+int	a17(void)
+{
+	return printf("hel%%lo%##-0 3.4p world\n", &tst_g);
+}
+
+int	b17(void)
+{
+	return ft_printf("hel%%lo%##-0 3.4p world\n", &tst_g);
+}
+
+int	a18(void)
+{
+	return printf("hel%%lo%+4.3p world\n", &tst_g);
+}
+
+int	b18(void)
+{
+	return ft_printf("hel%%lo%+4.3p world\n", &tst_g);
+}
+
+
+#define SZ 19
 
 int	main(void)
 {
@@ -158,8 +261,28 @@ int	main(void)
 	bs[7] = b7;
 	as[8] = a8;
 	bs[8] = b8;
+	as[9] = a9;
+	bs[9] = b9;
+	as[10] = a10;
+	bs[10] = b10;
+	as[11] = a11;
+	bs[11] = b11;
+	as[12] = a12;
+	bs[12] = b12;
+	as[13] = a13;
+	bs[13] = b13;
+	as[14] = a14;
+	bs[14] = b14;
+	as[15] = a15;
+	bs[15] = b15;
+	as[16] = a16;
+	bs[16] = b16;
+	as[17] = a17;
+	bs[17] = b17;
+	as[18] = a18;
+	bs[18] = b18;
 
-	for (int i = 7; i < SZ; i ++)
+	for (int i = 0; i < SZ; i ++)
 	{
 #ifdef DEBUG
 		printf("%i\n", i);
