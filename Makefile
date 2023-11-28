@@ -17,15 +17,18 @@ all: $(NAME)
 
 $(NAME): $(OBJS)
 	$(PACK) $(NAME) $(OBJS)
+
+LIBFT: libft/libft.h
+	cd libft && make all && make clean
 	
-$(OBJS): %.o: %.c libft/libft.h
+$(OBJS): %.o: %.c LIBFT
 	$(CC) $(CFLAGS) -c $< -o $@ $(INCLUDES) -g
 
 clean:
 	rm -f $(OBJS)
 
 fclean: clean
-	rm -f $(NAME)
+	rm -f $(NAME) libft/libft.a
 
 re: fclean all
 
@@ -46,4 +49,5 @@ retest: testfclean test
 go: re retest
 	norminette *.c *.h
 	tests/test
+	rm -f std.tmp custom.tmp
 	# -------- Testing finished. --------

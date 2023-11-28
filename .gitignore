@@ -1,5 +1,5 @@
 *.o
 *.swp
 tests/test
-libftprintf.a
+*.a
 *.tmp

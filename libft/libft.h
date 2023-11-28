@@ -6,7 +6,7 @@
 /*   By: inikulin <inikulin@student.42berlin.d      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/14 15:16:17 by inikulin          #+#    #+#             */
-/*   Updated: 2023/11/24 17:29:55 by inikulin         ###   ########.fr       */
+/*   Updated: 2023/11/28 19:11:47 by inikulin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,10 +49,8 @@ void	ft_putendl_fd(char *s, int fd);
 int		ft_atoi(const char *nptr);
 char	*ft_itoa(int v);
 void	ft_putnbr_fd(int n, int fd);
-size_t	ft_lltoa_base(long long nbr, char *base, 
-		char *buf);
-size_t	ft_ulltoa_base(unsigned long long nbr,
-	       	char *base, char *buf);
+size_t	ft_lltoa_base(long long nbr, char *base, char *buf);
+size_t	ft_ulltoa_base(unsigned long long nbr, char *base, char *buf);
 // -------- memory --------
 void	*ft_memchr(const void *s, int c, size_t n);
 void	*ft_memset(void *s, int c, size_t n);

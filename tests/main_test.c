@@ -6,7 +6,7 @@
 /*   By: inikulin <inikulin@student.42berlin.d      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/27 14:00:01 by inikulin          #+#    #+#             */
-/*   Updated: 2023/11/28 19:02:17 by inikulin         ###   ########.fr       */
+/*   Updated: 2023/11/28 19:25:50 by inikulin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 #include <assert.h>
 #include "libft.h"
 #include "ft_printf.h"
-#define DEBUG
+//#define DEBUG
 
 static void	catch(char* fname, int *out, int *save)
 {
@@ -341,7 +341,7 @@ int	main(void)
 	as[23] = a23;
 	bs[23] = b23;
 
-
+	printf("Starting %d tests.\n", SZ);
 	for (int i = 0; i < SZ; i ++)
 	{
 #ifdef DEBUG
@@ -370,6 +370,8 @@ int	main(void)
 		close(fs);
 		close(fc);
 	}
+	remove("std.tmp");
+	remove("custom.tmp");
 	return (0);
 }
 
