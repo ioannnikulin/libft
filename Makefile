@@ -42,7 +42,7 @@ testfclean:
 	rm -f $(TESTNAME)
 
 test: $(TESTOBJS) $(NAME) libft/libft.a
-	$(CC) $(CFLAGS) $^ $(TESTINCLUDES) -o $(TESTNAME) -g -Llibft -L. -lftprintf -lft
+	$(CC) $(CFLAGS) $^ $(TESTINCLUDES) -o $(TESTNAME) -g -Llibft -L. -lftprintf -lft -fsanitize=address
 
 retest: testfclean test
 

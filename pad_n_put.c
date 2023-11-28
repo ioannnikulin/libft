@@ -6,7 +6,7 @@
 /*   By: inikulin <inikulin@student.42berlin.d      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/24 12:46:27 by inikulin          #+#    #+#             */
-/*   Updated: 2023/11/28 20:14:32 by inikulin         ###   ########.fr       */
+/*   Updated: 2023/11/28 21:40:43 by inikulin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,10 +52,8 @@ static int	sign(char orig, t_params params, int fd)
 
 static void	calc_lens(int lens[4], t_params params, char *c, int l)
 {
-	lens[3] = 0;
+	ft_bzero(lens, 4 * sizeof(int));
 	lens[2] = l;
-	lens[1] = 0;
-	lens[0] = 0;
 	if (params.precision > l)
 		lens[1] = params.precision - l;
 	if (params.left_space_pad && params.min_width > lens[1] + lens[2])
@@ -92,7 +90,10 @@ int	pad_n_put(char *c, int l, int fd, t_params params)
 	lens[0] += hex_prefix(params, fd);
 	pad(lens[1], '0', fd);
 	if (l && c[MX - l] == '-')
+	{
 		write(fd, &c[MX - l + 1], l - 1);
+		lens[2]--;
+	}
 	else
 		write(fd, &c[MX - l], l);
 	pad(lens[3], ' ', fd);

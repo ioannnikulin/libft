@@ -6,7 +6,7 @@
 /*   By: inikulin <inikulin@student.42berlin.d      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/27 14:00:01 by inikulin          #+#    #+#             */
-/*   Updated: 2023/11/28 20:03:37 by inikulin         ###   ########.fr       */
+/*   Updated: 2023/11/28 21:42:16 by inikulin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 #include <fcntl.h>
 #include <unistd.h>
 #include <assert.h>
+#include <limits.h>
 #include "libft.h"
 #include "ft_printf.h"
 #define DEBUG
@@ -279,7 +280,207 @@ int	b23(void)
 	return ft_printf("hel%%lo%#.0i world\n", 0);
 }
 
-#define SZ 24
+int	a24(void)
+{
+	return printf("%s", 0);
+}
+
+int	b24(void)
+{
+	return ft_printf("%s", 0);
+}
+
+int	a25(void)
+{
+	return printf("%i", 0);
+}
+
+int	b25(void)
+{
+	return ft_printf("%i", 0);
+}
+
+int	a26(void)
+{
+	return printf("%u", 0);
+}
+
+int	b26(void)
+{
+	return ft_printf("%u", 0);
+}
+
+int	a27(void)
+{
+	return printf("%x", 0);
+}
+
+int	b27(void)
+{
+	return ft_printf("%x", 0);
+}
+
+int	a28(void)
+{
+	return printf("%#x", 0);
+}
+
+int	b28(void)
+{
+	return ft_printf("%#x", 0);
+}
+
+int	a29(void)
+{
+	return printf("%c", 0);
+}
+
+int	b29(void)
+{
+	return ft_printf("%c", 0);
+}
+
+int	a30(void)
+{
+	return printf("%p", 0);
+}
+
+int	b30(void)
+{
+	return ft_printf("%p", 0);
+}
+
+int	a31(void)
+{
+	return printf("%c", -2);
+}
+
+int	b31(void)
+{
+	return ft_printf("%c", -2);
+}
+
+int	a32(void)
+{
+	return printf("%i", INT_MAX);
+}
+
+int	b32(void)
+{
+	return ft_printf("%i", INT_MAX);
+}
+
+int	a33(void)
+{
+	return printf("%i", INT_MIN);
+}
+
+int	b33(void)
+{
+	return ft_printf("%i", INT_MIN);
+}
+
+int	a34(void)
+{
+	return printf("%p", ULLONG_MAX);
+}
+
+int	b34(void)
+{
+	return ft_printf("%p", ULLONG_MAX);
+}
+
+int	a35(void)
+{
+	char			c;
+	char			d;
+	unsigned int	u;
+	int				pf;
+	int				fp;
+	int				num;
+	char			*s = "@@@";
+	char			*s2 = NULL;
+
+	c = 'a';
+	d = 'b';
+	num = 0x7FFFFFFF;
+	u = 0xFFFFFFFF;
+	return printf("printf : a%pbc%%de%5cfg%-20.15uhij%2sk%-+20.15dlm% inop%#20.15Xq%#xr\n", (void *)&c, d, u, s, num, 0, u, u);
+}
+
+int	b35(void)
+{
+	char			c;
+	char			d;
+	unsigned int	u;
+	int				pf;
+	int				fp;
+	int				num;
+	char			*s = "@@@";
+	char			*s2 = NULL;
+
+	c = 'a';
+	d = 'b';
+	num = 0x7FFFFFFF;
+	u = 0xFFFFFFFF;
+	return ft_printf("printf : a%pbc%%de%5cfg%-20.15uhij%2sk%-+20.15dlm% inop%#20.15Xq%#xr\n", (void *)&c, d, u, s, num, 0, u, u);
+}
+
+int	a36(void)
+{
+	char			*s2 = NULL;
+
+	return printf("%8p-%8s\n", NULL, s2);
+}
+
+int	b36(void)
+{
+	char			*s2 = NULL;
+
+	return ft_printf("%8p-%8s\n", NULL, s2);
+}
+
+int	a37(void)
+{
+	return printf("%-9sScience!\n", "Aperture");
+}
+
+int	b37(void)
+{
+	return ft_printf("%-9sScience!\n", "Aperture");
+}
+
+int	a38(void)
+{
+	return printf("%.3d\n", -1234);
+}
+
+int	b38(void)
+{
+	return ft_printf("%.3d\n", -1234);
+}
+
+int	a39(void)
+{
+	return printf("%10.12i", INT_MIN);
+}
+
+int	b39(void)
+{
+	return ft_printf("%10.12i", INT_MIN);
+}
+
+int	a40(void)
+{
+	return printf("%12.10i", INT_MIN);
+}
+
+int	b40(void)
+{
+	return ft_printf("%12.10i", INT_MIN);
+}
+
+#define SZ 41
 
 int	main(void)
 {
@@ -340,9 +541,43 @@ int	main(void)
 	bs[22] = b22;
 	as[23] = a23;
 	bs[23] = b23;
+	as[24] = a24;
+	bs[24] = b24;
+	as[25] = a25;
+	bs[25] = b25;
+	as[26] = a26;
+	bs[26] = b26;
+	as[27] = a27;
+	bs[27] = b27;
+	as[28] = a28;
+	bs[28] = b28;
+	as[29] = a29;
+	bs[29] = b29;
+	as[30] = a30;
+	bs[30] = b30;
+	as[31] = a31;
+	bs[31] = b31;
+	as[32] = a32;
+	bs[32] = b32;
+	as[33] = a33;
+	bs[33] = b33;
+	as[34] = a34;
+	bs[34] = b34;
+	as[35] = a35;
+	bs[35] = b35;
+	as[36] = a36;
+	bs[36] = b36;
+	as[37] = a37;
+	bs[37] = b37;
+	as[38] = a38;
+	bs[38] = b38;
+	as[39] = a39;
+	bs[39] = b39;
+	as[40] = a40;
+	bs[40] = b40;
 
 	printf("Starting %d tests.\n", SZ);
-	for (int i = 0; i < SZ; i ++)
+	for (int i = 35; i < SZ; i ++)
 	{
 #ifdef DEBUG
 		printf("%i\n", i);
