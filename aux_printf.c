@@ -6,7 +6,7 @@
 /*   By: inikulin <inikulin@student.42berlin.d      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/24 12:46:27 by inikulin          #+#    #+#             */
-/*   Updated: 2023/11/28 18:02:58 by inikulin         ###   ########.fr       */
+/*   Updated: 2023/11/28 19:44:26 by inikulin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,8 +58,7 @@ static t_params	parse_params(char **c)
 {
 	t_params	r;
 
-	r.min_width = 0;
-	r.precision = -1;
+	r = (t_params){0, 0, 0, 0, 0, 0, -1, 0};
 	while (1)
 	{
 		if (single_char_param(c, '-', &r.left_space_pad))
