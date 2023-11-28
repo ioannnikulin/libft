@@ -6,7 +6,7 @@
 /*   By: inikulin <inikulin@student.42berlin.d      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/24 12:46:27 by inikulin          #+#    #+#             */
-/*   Updated: 2023/11/28 20:03:57 by inikulin         ###   ########.fr       */
+/*   Updated: 2023/11/28 20:10:42 by inikulin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,7 @@ int	put_x(char **c, va_list *argv, int fd, t_params params)
 
 	p = va_arg(*argv, int);
 	set_flags(&params, c, p);
+	ft_bzero(s, MX);
 	if (params.capital_hex)
 		pure_len = ft_ulltoa_base(p, "0123456789ABCDEF", s);
 	else
