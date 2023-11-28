@@ -6,7 +6,7 @@
 /*   By: inikulin <inikulin@student.42berlin.d      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/24 12:46:27 by inikulin          #+#    #+#             */
-/*   Updated: 2023/11/28 17:47:18 by inikulin         ###   ########.fr       */
+/*   Updated: 2023/11/28 18:18:39 by inikulin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ int	put_s(char **c, va_list *argv, int fd, t_params params)
 	lens[0] = 0;
 	lens[1] = (int)ft_strlen(s);
 	lens[2] = 0;
-	if (params.precision >= 0 && params.precision > lens[1])
+	if (params.precision >= 0 && params.precision < lens[1])
 		lens[1] = params.precision;
 	if (params.min_width > lens[1])
 	{

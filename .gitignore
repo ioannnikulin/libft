@@ -2,3 +2,4 @@
 *.swp
 tests/test
 libftprintf.a
+*.tmp
