@@ -6,7 +6,7 @@
 /*   By: inikulin <inikulin@student.42berlin.d      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/24 12:46:27 by inikulin          #+#    #+#             */
-/*   Updated: 2023/11/28 17:16:37 by inikulin         ###   ########.fr       */
+/*   Updated: 2023/11/28 20:01:42 by inikulin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,7 @@ static void	calc_lens(int lens[4], t_params params, char *c, int l)
 			&& params.min_width > lens[2])
 		lens[0] = params.min_width - lens[2];
 	if ((params.sign_mandatory || params.space_before_positive \
-			|| c[MX - l] != '-') && lens[0] > 0)
+			|| (l && c[MX - l] != '-')) && lens[0] > 0)
 		lens[0]--;
 	if (params.hex_prefix)
 	{

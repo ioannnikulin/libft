@@ -6,7 +6,7 @@
 /*   By: inikulin <inikulin@student.42berlin.d      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/27 14:00:01 by inikulin          #+#    #+#             */
-/*   Updated: 2023/11/28 19:25:50 by inikulin         ###   ########.fr       */
+/*   Updated: 2023/11/28 20:03:37 by inikulin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 #include <assert.h>
 #include "libft.h"
 #include "ft_printf.h"
-//#define DEBUG
+#define DEBUG
 
 static void	catch(char* fname, int *out, int *save)
 {
