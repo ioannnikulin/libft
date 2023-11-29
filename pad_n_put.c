@@ -6,7 +6,7 @@
 /*   By: inikulin <inikulin@student.42berlin.d      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/24 12:46:27 by inikulin          #+#    #+#             */
-/*   Updated: 2023/11/28 21:40:43 by inikulin         ###   ########.fr       */
+/*   Updated: 2023/11/29 14:19:52 by inikulin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,10 +19,12 @@ static void	pad(int len, char c, int fd)
 		write(fd, &c, 1);
 }
 
-static int	hex_prefix(t_params params, int fd)
+static int	hex_prefix(t_params params, int fd, int print)
 {
 	if (!params.hex_prefix)
 		return (0);
+	if (!print)
+		return (2);
 	if (params.capital_hex)
 		write(fd, "0X", 2);
 	else
@@ -30,54 +32,54 @@ static int	hex_prefix(t_params params, int fd)
 	return (2);
 }
 
-static int	sign(char orig, t_params params, int fd)
+static int	sign(char orig, t_params params, int fd, int print)
 {
 	if (orig == '-')
 	{
-		write(fd, &orig, 1);
+		if (print)
+			write(fd, &orig, 1);
 		return (1);
 	}
 	if (params.sign_mandatory)
 	{
-		write(fd, "+", 1);
+		if (print)
+			write(fd, "+", 1);
 		return (1);
 	}
 	if (params.space_before_positive)
 	{
-		write(fd, " ", 1);
+		if (print)
+			write(fd, " ", 1);
 		return (1);
 	}
 	return (0);
 }
 
-static void	calc_lens(int lens[4], t_params params, char *c, int l)
+static void	calc_lens(int lens[6], t_params p, char *c, int l)
 {
-	ft_bzero(lens, 4 * sizeof(int));
-	lens[2] = l;
-	if (params.precision > l)
-		lens[1] = params.precision - l;
-	if (params.left_space_pad && params.min_width > lens[1] + lens[2])
-		lens[3] = params.min_width - lens[1] - lens[2];
-	else if (params.left_zero_pad && params.min_width > lens[1] + lens[2])
-		lens[1] = params.min_width - lens[2];
-	else if (!params.left_space_pad && !params.left_zero_pad \
-			&& params.min_width > lens[2])
-		lens[0] = params.min_width - lens[2];
-	if ((params.sign_mandatory || params.space_before_positive \
-			|| (l && c[MX - l] != '-')) && lens[0] > 0)
-		lens[0]--;
-	if (params.hex_prefix)
-	{
-		if (lens[0] > 1)
-			lens[0] -= 2;
-		else
-			lens[0] = 0;
-	}
+	int	pure;
+
+	ft_bzero(lens, 6 * sizeof(int));
+	lens[1] = sign(c[MX - l], p, 0, 0);
+	lens[4] = l;
+	if (c[MX - l] == '-')
+		lens[4]--;
+	if (p.precision > lens[4])
+		lens[3] = p.precision - lens[4];
+	lens[2] = hex_prefix(p, 0, 0);
+	pure = lens[1] + lens[2] + lens[3] + lens[4];
+	if (p.left_space_pad && p.min_width > pure)
+		lens[5] = p.min_width - pure;
+	else if (p.left_zero_pad && p.min_width > pure)
+		lens[3] += p.min_width - pure;
+	else if (!p.left_space_pad && !p.left_zero_pad \
+			&& p.min_width > pure)
+		lens[0] = p.min_width - pure;
 }
 
 int	pad_n_put(char *c, int l, int fd, t_params params)
 {
-	int	lens[4];
+	int	lens[6];
 
 	if (params.left_space_pad)
 		params.left_zero_pad = 0;
@@ -85,17 +87,10 @@ int	pad_n_put(char *c, int l, int fd, t_params params)
 		params.space_before_positive = 0;
 	calc_lens(lens, params, c, l);
 	pad(lens[0], ' ', fd);
-	if (l)
-		lens[0] += sign(c[MX - l], params, fd);
-	lens[0] += hex_prefix(params, fd);
-	pad(lens[1], '0', fd);
-	if (l && c[MX - l] == '-')
-	{
-		write(fd, &c[MX - l + 1], l - 1);
-		lens[2]--;
-	}
-	else
-		write(fd, &c[MX - l], l);
-	pad(lens[3], ' ', fd);
-	return (lens[0] + lens[1] + lens[2] + lens[3]);
+	sign(c[MX - l], params, fd, 1);
+	hex_prefix(params, fd, 1);
+	pad(lens[3], '0', fd);
+	write(fd, &c[MX - l + lens[1]], lens[4]);
+	pad(lens[5], ' ', fd);
+	return (lens[0] + lens[1] + lens[2] + lens[3] + lens[4] + lens[5]);
 }

@@ -6,7 +6,7 @@
 /*   By: inikulin <inikulin@student.42berlin.d      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/24 12:46:27 by inikulin          #+#    #+#             */
-/*   Updated: 2023/11/28 21:00:55 by inikulin         ###   ########.fr       */
+/*   Updated: 2023/11/29 13:20:53 by inikulin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,6 @@ int	put_s(char **c, va_list *argv, int fd, t_params params)
 	}
 	pad(lens[0], ' ', fd);
 	write(fd, s, lens[1]);
-	pad(lens[0], ' ', fd);
+	pad(lens[2], ' ', fd);
 	return (lens[0] + lens[1] + lens[2]);
 }
