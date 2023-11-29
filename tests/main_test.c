@@ -6,7 +6,7 @@
 /*   By: inikulin <inikulin@student.42berlin.d      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/27 14:00:01 by inikulin          #+#    #+#             */
-/*   Updated: 2023/11/28 21:42:16 by inikulin         ###   ########.fr       */
+/*   Updated: 2023/11/29 14:27:15 by inikulin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -480,7 +480,40 @@ int	b40(void)
 	return ft_printf("%12.10i", INT_MIN);
 }
 
-#define SZ 41
+int 	a41(void)
+{
+	return printf("[%+-20.15d]", INT_MAX);
+}
+
+int 	b41(void)
+{
+	return ft_printf("[%+-20.15d]", INT_MAX);
+}
+
+int	a42(void)
+{
+	return printf("[%#20.15X][%#x]", UINT_MAX, UINT_MAX);
+}
+
+int	b42(void)
+{
+	return ft_printf("[%#20.15X][%#x]", UINT_MAX, UINT_MAX);
+}
+
+char	*s_g = "ab";
+
+int	a43(void)
+{
+	return printf("[%#20.15p][%#20.15s][%#15.20p][%#15.20s]", s_g, s_g, s_g, s_g);
+}
+
+int	b43(void)
+{
+	return ft_printf("[%#20.15p][%#20.15s][%#15.20p][%#15.20s]", s_g, s_g, s_g, s_g);
+}
+
+#define SZ 44
+#define START 0 
 
 int	main(void)
 {
@@ -575,9 +608,15 @@ int	main(void)
 	bs[39] = b39;
 	as[40] = a40;
 	bs[40] = b40;
+	as[41] = a41;
+	bs[41] = b41;
+	as[42] = a42;
+	bs[42] = b42;
+	as[43] = a43;
+	bs[43] = b43;
 
 	printf("Starting %d tests.\n", SZ);
-	for (int i = 35; i < SZ; i ++)
+	for (int i = START; i < SZ; i ++)
 	{
 #ifdef DEBUG
 		printf("%i\n", i);

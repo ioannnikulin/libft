@@ -6,7 +6,7 @@
 /*   By: inikulin <inikulin@student.42berlin.d      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/24 12:46:27 by inikulin          #+#    #+#             */
-/*   Updated: 2023/11/28 20:10:42 by inikulin         ###   ########.fr       */
+/*   Updated: 2023/11/29 14:01:17 by inikulin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,12 +27,12 @@ static void	set_flags(t_params *params, char **c, int p)
 
 int	put_x(char **c, va_list *argv, int fd, t_params params)
 {
-	size_t	pure_len;
-	size_t	res_len;
-	char	s[MX];
-	int		p;
+	size_t			pure_len;
+	size_t			res_len;
+	char			s[MX];
+	unsigned int	p;
 
-	p = va_arg(*argv, int);
+	p = va_arg(*argv, unsigned int);
 	set_flags(&params, c, p);
 	ft_bzero(s, MX);
 	if (params.capital_hex)
@@ -41,8 +41,6 @@ int	put_x(char **c, va_list *argv, int fd, t_params params)
 		pure_len = ft_ulltoa_base(p, "0123456789abcdef", s);
 	if (!p && !params.precision)
 		pure_len = 0;
-	else
-		params.min_width = 0;
 	res_len = pad_n_put(s, pure_len, fd, params);
 	return (res_len);
 }
