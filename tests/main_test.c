@@ -6,7 +6,7 @@
 /*   By: inikulin <inikulin@student.42berlin.d      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/27 14:00:01 by inikulin          #+#    #+#             */
-/*   Updated: 2023/11/29 14:27:15 by inikulin         ###   ########.fr       */
+/*   Updated: 2023/11/29 15:37:54 by inikulin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -512,7 +512,17 @@ int	b43(void)
 	return ft_printf("[%#20.15p][%#20.15s][%#15.20p][%#15.20s]", s_g, s_g, s_g, s_g);
 }
 
-#define SZ 44
+int	a44(void)
+{
+	return printf("[%#3.4x][%#4.3x][%+-0 #3.4x][%-+0 #4.3X]", 0xf, 0xf, 0xf, 0xf);
+}
+
+int	b44(void)
+{
+	return ft_printf("[%#3.4x][%#4.3x][%+-0 #3.4x][%-+0 #4.3X]", 0xf, 0xf, 0xf, 0xf);
+}
+
+#define SZ 45
 #define START 0 
 
 int	main(void)
@@ -614,6 +624,8 @@ int	main(void)
 	bs[42] = b42;
 	as[43] = a43;
 	bs[43] = b43;
+	as[44] = a44;
+	bs[44] = b44;
 
 	printf("Starting %d tests.\n", SZ);
 	for (int i = START; i < SZ; i ++)
