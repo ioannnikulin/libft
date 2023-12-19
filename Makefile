@@ -15,6 +15,8 @@ TESTINCLUDES = -I $(TESTF)/tests.h
 
 all: $(NAME)
 
+bonus: all
+
 $(NAME): $(OBJS)
 	$(PACK) $(NAME) $(OBJS)
 
