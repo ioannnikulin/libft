@@ -8,6 +8,8 @@ PACK = ar rcs
 
 all: $(NAME)
 
+bonus: all
+
 $(NAME): $(OBJS)
 	$(PACK) tmp $(OBJS)
 	$(PACK) -T $(NAME) tmp libft/libft.a
