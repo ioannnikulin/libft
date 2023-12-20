@@ -18,7 +18,7 @@ LIBFT: libft/libft.h
 	cd libft && make all && make clean
 	
 $(OBJS): %.o: %.c LIBFT
-	$(CC) $(CFLAGS) -c $< -o $@ $(INCLUDES) -g
+	$(CC) $(CFLAGS) -c $< -o $@ $(INCLUDES) -g -lft -Llibft
 
 clean:
 	rm -f $(OBJS)

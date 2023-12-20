@@ -6,14 +6,14 @@
 /*   By: inikulin <inikulin@student.42berlin.d      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/24 12:46:27 by inikulin          #+#    #+#             */
-/*   Updated: 2023/11/28 18:03:55 by inikulin         ###   ########.fr       */
+/*   Updated: 2023/12/20 15:38:23 by inikulin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #ifndef AUX_PRINTF_H
 # define AUX_PRINTF_H
 # include <stdarg.h>
 # include <unistd.h>
-# include "libft.h"
+# include "libft/libft.h"
 
 typedef struct s_params
 {

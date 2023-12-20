@@ -6,7 +6,7 @@
 /*   By: inikulin <inikulin@student.42berlin.d      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/24 12:46:27 by inikulin          #+#    #+#             */
-/*   Updated: 2023/12/20 14:35:40 by inikulin         ###   ########.fr       */
+/*   Updated: 2023/12/20 17:36:06 by inikulin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,9 +60,10 @@ static void	calc_lens(int lens[6], t_params p, char *c, int l)
 	int	pure;
 
 	ft_bzero(lens, 6 * sizeof(int));
-	lens[1] = sign(c[MX - l], p, 0, 0);
+	if (l <= MX && l > 0)
+		lens[1] = sign(c[MX - l], p, 0, 0);
 	lens[4] = l;
-	if (c[MX - l] == '-')
+	if (l > 0 && l <= MX && c[MX - l] == '-')
 		lens[4]--;
 	if (p.precision > lens[4])
 		lens[3] = p.precision - lens[4];
@@ -87,7 +88,8 @@ int	pad_n_put(char *c, int l, int fd, t_params params)
 		params.space_before_positive = 0;
 	calc_lens(lens, params, c, l);
 	pad(lens[0], ' ', fd);
-	sign(c[MX - l], params, fd, 1);
+	if (l <= MX && l > 0)
+		sign(c[MX - l], params, fd, 1);
 	hex_prefix(params, fd, 1);
 	pad(lens[3], '0', fd);
 	write(fd, &c[MX - lens[4]], lens[4]);
