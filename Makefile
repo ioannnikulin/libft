@@ -4,7 +4,7 @@ CFLAGS = -Wall -Wextra -Werror
 SRCS = ft_printf.c aux_printf.c put_c.c put_p.c put_s.c put_x.c pad_n_put.c put_d.c put_percent.c put_u.c
 OBJS = $(SRCS:.c=.o)
 INCLUDES = -I . -I libft
-PACK = ar rcs
+PACK = ar rcsT
 #==============================================================================
 TESTF = tests
 TESTS = $(TESTF)/main_test.c
@@ -18,13 +18,13 @@ all: $(NAME)
 bonus: all
 
 $(NAME): $(OBJS)
-	$(PACK) $(NAME) $(OBJS)
+	$(PACK) $(NAME) $(OBJS) libft/libft.a
 
 LIBFT: libft/libft.h
 	cd libft && make all && make clean
 	
 $(OBJS): %.o: %.c LIBFT
-	$(CC) $(CFLAGS) -c $< -o $@ $(INCLUDES) -g
+	$(CC) $(CFLAGS) -c $< -o $@ $(INCLUDES) -g -lft -Llibft
 
 clean:
 	rm -f $(OBJS)
