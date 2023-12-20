@@ -6,7 +6,7 @@
 /*   By: inikulin <inikulin@student.42berlin.d      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/24 12:46:27 by inikulin          #+#    #+#             */
-/*   Updated: 2023/11/29 14:19:52 by inikulin         ###   ########.fr       */
+/*   Updated: 2023/12/20 14:35:40 by inikulin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,7 +90,7 @@ int	pad_n_put(char *c, int l, int fd, t_params params)
 	sign(c[MX - l], params, fd, 1);
 	hex_prefix(params, fd, 1);
 	pad(lens[3], '0', fd);
-	write(fd, &c[MX - l + lens[1]], lens[4]);
+	write(fd, &c[MX - lens[4]], lens[4]);
 	pad(lens[5], ' ', fd);
 	return (lens[0] + lens[1] + lens[2] + lens[3] + lens[4] + lens[5]);
 }
