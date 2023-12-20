@@ -6,7 +6,7 @@
 /*   By: inikulin <inikulin@student.42berlin.d      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/27 14:00:01 by inikulin          #+#    #+#             */
-/*   Updated: 2023/12/20 14:37:39 by inikulin         ###   ########.fr       */
+/*   Updated: 2023/12/20 17:22:37 by inikulin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -522,7 +522,77 @@ int	b44(void)
 	return ft_printf("[%#3.4x][%#4.3x][%+-0 #3.4x][%-+0 #4.3X]", 0xf, 0xf, 0xf, 0xf);
 }
 
-#define SZ 45
+int	a45(void)
+{
+	return printf("[%.03s][%3.1s][%9.1s][%-3.1s][%-9.1s]", 0, 0, 0, 0, 0);
+}
+
+int	b45(void)
+{
+	return ft_printf("[%.03s][%3.1s][%9.1s][%-3.1s][%-9.1s]", 0, 0, 0, 0, 0);
+}
+
+int	a46(void)
+{
+	return printf("[%-s][%s][%2s][%-3s][%10s][%-10s]", 0, 0, 0, 0, 0, 0);
+}
+
+int	b46(void)
+{
+	return ft_printf("[%-s][%s][%2s][%-3s][%10s][%-10s]", 0, 0, 0, 0, 0, 0);
+}
+
+int	a47(void)
+{
+	return printf("[%08.5d][%08.5u][%08.5d][%08.5u]", 0, 0, 34, 34);
+}
+
+int	b47(void)
+{
+	return ft_printf("[%08.5d][%08.5u][%08.5d][%08.5u]", 0, 0, 34, 34);
+}
+
+int	a48(void)
+{
+	return printf("[%05d][%07i][%03d][%05u][%-05u][%-5.u][%-5.0u]", 43, -43, 0, 34, 34, 34, 34);
+}
+
+int	b48(void)
+{
+	return ft_printf("[%05d][%07i][%03d][%05u][%-05u][%-5.u][%-5.0u]", 43, -43, 0, 34, 34, 34, 34);
+}
+
+int	a49(void)
+{
+	return printf("[%.0u][%.u][%5.0d][%5.0u][%-5.0u]", 0, 0, 0, 0, 0);
+}
+
+int	b49(void)
+{
+	return ft_printf("[%.0u][%.u][%5.0d][%5.0u][%-5.0u]", 0, 0, 0, 0, 0);
+}
+
+int	a50(void)
+{
+	return printf("[%.0x][%.x][%5.0x][%-5.x][%-5.0x]", 0, 0, 0, 0, 0);
+}
+
+int	b50(void)
+{
+	return ft_printf("[%.0x][%.x][%5.0x][%-5.x][%-5.0x]", 0, 0, 0, 0, 0);
+}
+
+int	a51(void)
+{
+	return printf("[%08.0x][%.x][%5.0x][%-5.x][%-5.0x]", 243, 243, 243, 243, 243);
+}
+
+int	b51(void)
+{
+	return ft_printf("[%08.0x][%.x][%5.0x][%-5.x][%-5.0x]", 243, 243, 243, 243, 243);
+}
+
+#define SZ 52
 #define START 0 
 
 int	main(void)
@@ -626,6 +696,20 @@ int	main(void)
 	bs[43] = b43;
 	as[44] = a44;
 	bs[44] = b44;
+	as[45] = a45;
+	bs[45] = b45;
+	as[46] = a46;
+	bs[46] = b46;
+	as[47] = a47;
+	bs[47] = b47;
+	as[48] = a48;
+	bs[48] = b48;
+	as[49] = a49;
+	bs[49] = b49;
+	as[50] = a50;
+	bs[50] = b50;
+	as[51] = a51;
+	bs[51] = b51;
 
 	printf("Starting %d tests.\n", SZ);
 	for (int i = START; i < SZ; i ++)
