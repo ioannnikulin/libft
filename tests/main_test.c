@@ -6,7 +6,7 @@
 /*   By: inikulin <inikulin@student.42berlin.d      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/27 14:00:01 by inikulin          #+#    #+#             */
-/*   Updated: 2023/11/29 15:37:54 by inikulin         ###   ########.fr       */
+/*   Updated: 2023/12/20 14:37:39 by inikulin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -647,11 +647,14 @@ int	main(void)
 		fc = open("custom.tmp", O_RDONLY, 0600);
 		rs = 1;
 		rc = 1;
-		while (!rs)
+		while (1)
 		{
-			read(fs, &rs, 1);
-			read(fc, &rc, 1);
-			assert(!rc && rs == rc);
+			retc = read(fc, &rc, 1);
+			rets = read(fs, &rs, 1);
+			assert(retc == rets);
+			if (rets != 1)
+				break;
+			assert(rs == rc);
 		}
 		close(fs);
 		close(fc);
