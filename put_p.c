@@ -6,7 +6,7 @@
 /*   By: inikulin <inikulin@student.42berlin.d      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/24 12:46:27 by inikulin          #+#    #+#             */
-/*   Updated: 2023/11/29 14:28:04 by inikulin         ###   ########.fr       */
+/*   Updated: 2023/12/20 14:32:18 by inikulin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ int	put_p(char **c, va_list *argv, int fd, t_params params)
 	}
 	else
 	{
-		ft_strlcpy(&s[MX - 6], "(nil)", 6);
+		ft_strlcpy(&s[MX - 5], "(nil)", 6);
 		pure_len = 5;
 	}
 	res_len = pad_n_put(s, pure_len, fd, params);
