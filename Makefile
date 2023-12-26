@@ -1,9 +1,8 @@
-CC = cc
+CC = clang
 NAME = libftprintf.a
 CFLAGS = -Wall -Wextra -Werror
 SRCS = ft_printf.c aux_printf.c put_c.c put_p.c put_s.c put_x.c pad_n_put.c put_d.c put_percent.c put_u.c
 OBJS = $(SRCS:.c=.o)
-FTUNPACK = libft.tmp
 INCLUDES = -I . -I libft
 PACK = ar
 #==============================================================================
@@ -18,14 +17,12 @@ all: $(NAME)
 
 bonus: all
 
-$(NAME): $(OBJS) $(FTUNPACK)
-	$(PACK) rcs $@ $^
+$(NAME): $(OBJS) LIBFT
+	cp libft/libft.a $@
+	$(PACK) rcs $@ $(OBJS)
 
 LIBFT:
 	cd libft && make all
-
-$(FTUNPACK): LIBFT
-	$(PACK) p libft/libft.a > $@
 
 $(OBJS): %.o: %.c
 	$(CC) $(CFLAGS) -c $< -o $@ $(INCLUDES) -g
@@ -49,8 +46,8 @@ testfclean:
 	rm -f $(TESTOBJS)
 	rm -f $(TESTNAME)
 
-test: $(TESTOBJS) $(NAME) libft/libft.a
-	$(CC) $(CFLAGS) $^ $(TESTINCLUDES) -o $(TESTNAME) -g -Llibft -L. -lftprintf -lft -fsanitize=address
+test: $(TESTOBJS) $(NAME)
+	$(CC) $(CFLAGS) $^ $(TESTINCLUDES) -o $(TESTNAME) -g -L. -lftprintf -fsanitize=address
 
 retest: testfclean test
 
