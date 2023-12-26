@@ -1,4 +1,4 @@
-CC = clang
+CC = cc
 NAME = libftprintf.a
 CFLAGS = -Wall -Wextra -Werror
 SRCS = ft_printf.c aux_printf.c put_c.c put_p.c put_s.c put_x.c pad_n_put.c put_d.c put_percent.c put_u.c
