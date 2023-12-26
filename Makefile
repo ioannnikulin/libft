@@ -1,4 +1,4 @@
-CC = cc
+CC = clang
 NAME = libftprintf.a
 CFLAGS = -Wall -Wextra -Werror
 SRCS = ft_printf.c aux_printf.c put_c.c put_p.c put_s.c put_x.c pad_n_put.c put_d.c put_percent.c put_u.c
@@ -10,15 +10,13 @@ all: $(NAME)
 
 bonus: all
 
-$(NAME): $(OBJS) $(FTUNPACK)
-	$(PACK) rcs $@ $^
+$(NAME): $(OBJS) LIBFT
+	cp libft/libft.a $@
+	$(PACK) rcs $@ $(OBJS)
 
-LIBFT: libft/libft.h
-	cd libft && make all && cp libft.a libft.h ..
+LIBFT:
+	cd libft && make all
 
-FTUNPACK: LIBFT
-	$(PACK) x $< $@
-	
 $(OBJS): %.o: %.c
 	$(CC) $(CFLAGS) -c $< -o $@ $(INCLUDES) -g
 
@@ -27,7 +25,7 @@ clean:
 	cd libft && make clean
 
 fclean: clean
-	rm -f $(NAME) libft.a
+	rm -f $(NAME)
 	cd libft && make fclean
 
 re: fclean all
