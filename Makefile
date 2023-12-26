@@ -3,8 +3,9 @@ NAME = libftprintf.a
 CFLAGS = -Wall -Wextra -Werror
 SRCS = ft_printf.c aux_printf.c put_c.c put_p.c put_s.c put_x.c pad_n_put.c put_d.c put_percent.c put_u.c
 OBJS = $(SRCS:.c=.o)
+FTUNPACK = libft.tmp
 INCLUDES = -I . -I libft
-PACK = ar rcsT
+PACK = ar
 #==============================================================================
 TESTF = tests
 TESTS = $(TESTF)/main_test.c
@@ -17,20 +18,25 @@ all: $(NAME)
 
 bonus: all
 
-$(NAME): $(OBJS)
-	$(PACK) $(NAME) $(OBJS) libft/libft.a
+$(NAME): $(OBJS) $(FTUNPACK)
+	$(PACK) rcs $@ $^
 
-LIBFT: libft/libft.h
-	cd libft && make all && make clean
-	
-$(OBJS): %.o: %.c LIBFT
-	$(CC) $(CFLAGS) -c $< -o $@ $(INCLUDES) -g -lft -Llibft
+LIBFT:
+	cd libft && make all
+
+$(FTUNPACK): LIBFT
+	$(PACK) p libft/libft.a > $@
+
+$(OBJS): %.o: %.c
+	$(CC) $(CFLAGS) -c $< -o $@ $(INCLUDES) -g
 
 clean:
 	rm -f $(OBJS)
+	cd libft && make clean
 
 fclean: clean
-	rm -f $(NAME) libft/libft.a
+	rm -f $(NAME)
+	cd libft && make fclean
 
 re: fclean all
 
