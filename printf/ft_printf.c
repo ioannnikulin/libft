@@ -6,7 +6,7 @@
 /*   By: inikulin <inikulin@student.42berlin.d      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/24 12:46:27 by inikulin          #+#    #+#             */
-/*   Updated: 2023/11/28 18:01:52 by inikulin         ###   ########.fr       */
+/*   Updated: 2024/01/13 13:47:34 by inikulin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,12 @@
 #include <unistd.h>
 #include "aux_printf.h"
 
-int	ft_printf(const char *s, ...)
+int	printf_impl(int fd, const char *s, va_list *argv)
 {
 	char	*c;
 	int		normal;
 	int		res;
-	va_list	argv;
 
-	va_start(argv, s);
 	c = (char *)s;
 	normal = 0;
 	res = 0;
@@ -29,16 +27,32 @@ int	ft_printf(const char *s, ...)
 	{
 		if (*c == '%')
 		{
-			write(1, (c - normal), normal);
+			write(fd, (c - normal), normal);
 			res += normal;
 			normal = 0;
-			res += parse_conversion(&c, &argv, 1);
+			res += parse_conversion(&c, argv, fd);
 			continue ;
 		}
 		normal ++;
 		c ++;
 	}
-	va_end(argv);
-	write(1, c - normal, normal);
+	va_end(*argv);
+	write(fd, c - normal, normal);
 	return (res + normal);
+}
+
+int	ft_fprintf(int fd, const char *s, ...)
+{
+	va_list	argv;
+
+	va_start(argv, s);
+	return (printf_impl(fd, s, &argv));
+}
+
+int	ft_printf(const char *s, ...)
+{
+	va_list	argv;
+
+	va_start(argv, s);
+	return (printf_impl(1, s, &argv));
 }

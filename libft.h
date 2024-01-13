@@ -6,7 +6,7 @@
 /*   By: inikulin <inikulin@student.42berlin.d      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/14 15:16:17 by inikulin          #+#    #+#             */
-/*   Updated: 2023/12/20 18:02:54 by inikulin         ###   ########.fr       */
+/*   Updated: 2024/01/13 13:00:05 by inikulin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,13 +42,9 @@ char	*ft_strmapi(const char *s, char (*f)(unsigned int, char));
 void	ft_striteri(char *s, void (*f)(unsigned int, char *));
 int		ft_is_in(const char c, const char *set);
 char	*ft_empty_string(void);
-void	ft_putchar_fd(char c, int fd);
-void	ft_putstr_fd(char *s, int fd);
-void	ft_putendl_fd(char *s, int fd);
 // -------- numbers <> strings --------
 int		ft_atoi(const char *nptr);
 char	*ft_itoa(int v);
-void	ft_putnbr_fd(int n, int fd);
 size_t	ft_lltoa_base(long long nbr, char *base, char *buf);
 size_t	ft_ulltoa_base(unsigned long long nbr, char *base, char *buf);
 // -------- memory --------
@@ -64,7 +60,12 @@ typedef struct s_list
 {
 	void			*content;
 	struct s_list	*next;
+	struct s_list	*prev;
+	unsigned char	type;
 }	t_list;
+// types:
+// 0 single-linked, can be circular
+// 1 double-linked, can be circular
 t_list	*ft_lstnew(void *content);
 t_list	*ft_lst_generate(char	*texts[], int end_to);
 void	ft_lstadd_front(t_list **lst, t_list *new);
@@ -75,4 +76,7 @@ void	ft_lstdelone(t_list *lst, void (*del)(void *));
 void	ft_lstclear(t_list **lst, void (*del)(void *));
 void	ft_lstiter(t_list *lst, void (*f)(void *));
 t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
+// -------- printf --------
+int		ft_printf(const char *s, ...);
+int		ft_fprintf(int fd, const char *s, ...);
 #endif
