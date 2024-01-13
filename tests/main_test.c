@@ -6,7 +6,7 @@
 /*   By: inikulin <inikulin@student.42berlin.d      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/14 15:57:31 by inikulin          #+#    #+#             */
-/*   Updated: 2024/01/13 15:30:23 by inikulin         ###   ########.fr       */
+/*   Updated: 2024/01/13 17:18:52 by inikulin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,6 +71,7 @@ int	main(void)
 	ft_strmapi_test();
 	printf("striteri in testing\n");
 	ft_striteri_test();
+#ifdef NOTMY
 	printf("putchar_fd in testing\n");
 	ft_putchar_fd_test();
 	printf("putstr_fd in testing\n");
@@ -79,6 +80,8 @@ int	main(void)
 	ft_putendl_fd_test();
 	printf("putnbr_fd in testing\n");
 	ft_putnbr_fd_test();
+#endif
+#ifdef BONUS
 	printf("lstnew in testing\n");
 	ft_lstnew_test();
 	printf("lstsize in testing\n");
@@ -87,24 +90,29 @@ int	main(void)
 	ft_lstadd_front_test();
 	printf("lstclear in testing\n");
 	ft_lstclear_test();
-	printf("ft_lst_generate in testing\n");
-	ft_lst_generate_test();
 	printf("ft_lstlast in testing\n");
 	ft_lstlast_test();
-	printf("ft_lstadd_back in testing\n");
+	printf("lstadd_back in testing\n");
 	ft_lstadd_back_test();
-	printf("ft_lstdelone in testing\n");
+	printf("lstdelone in testing\n");
 	ft_lstdelone_test();
-	printf("ft_lstmap in testing\n");
+	printf("lstmap in testing\n");
 	ft_lstmap_test();
-	printf("ft_lstiter in testing\n");
+	printf("lstiter in testing\n");
 	ft_lstiter_test();
+#endif
+#ifdef JUSTMY
+	printf("ft_lst_generate in testing\n");
+	ft_lst_generate_test();
 	printf("ft_lltoa_base in testing\n");
 	ft_lltoa_base_test();
 	printf("ft_ulltoa_base in testing\n");
 	ft_ulltoa_base_test();
+#endif
+#ifdef PRINTF
 	printf("ft_printf in testing\n");
 	ft_printf_test();
+#endif
 	printf("All tests passed successfully!\n");
 	return (0);
 }

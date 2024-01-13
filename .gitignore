@@ -4,3 +4,4 @@ tests/test
 *.a
 *.tmp
 tmp
+*.sf

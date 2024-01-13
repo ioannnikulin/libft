@@ -6,7 +6,7 @@
 /*   By: inikulin <inikulin@student.42berlin.d      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/18 14:40:54 by inikulin          #+#    #+#             */
-/*   Updated: 2023/11/22 20:26:01 by inikulin         ###   ########.fr       */
+/*   Updated: 2024/01/13 20:26:34 by inikulin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,10 +19,17 @@
 
 static void	a(void *c)
 {
+	char *cc;
+
+	cc = c;
 	int f = open("tmp.tst", O_WRONLY | O_CREAT | O_APPEND, 0600);
 	if (f == -1)
 		assert(file_not_created(0));
-	ft_putendl_fd((char *)c, f);
+	while (*cc)
+	{
+		write(f, cc++, 1);
+	}
+	write(f, "\n", 1);
 	close(f);
 }
 
@@ -42,6 +49,10 @@ void	ft_lstiter_test(void)
 	t[4] = (t_testcase){-1, {NULL}};
 	for (int i = 0; i < SZ; i ++)
 	{
+	#ifdef DEBUG
+		printf("%i ", i);
+		fflush(stdout);
+	#endif
 		int rm = remove("tmp.tst");
 		assert(i == 0 || rm == 0);
 		t_list *root = ft_lst_generate(t[i].texts, t[i].end_to);
@@ -64,7 +75,7 @@ void	ft_lstiter_test(void)
 			check = ncheck;
 		}
 		#ifdef DEBUG
-		printf("%i %i [%s] [%s]\n", i, sz, rdbuf, check);
+		printf("%i [%s] [%s]\n", sz, rdbuf, check);
 		#endif
 		assert(sz >= 0);
 		int orig_sz = ft_strlen(check);

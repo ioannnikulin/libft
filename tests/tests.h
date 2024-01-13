@@ -6,7 +6,7 @@
 /*   By: inikulin <inikulin@student.42berlin.d      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/14 15:58:51 by inikulin          #+#    #+#             */
-/*   Updated: 2024/01/13 15:30:54 by inikulin         ###   ########.fr       */
+/*   Updated: 2024/01/13 17:18:40 by inikulin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,10 @@
 # include <bsd/string.h>
 # include <stdio.h>
 # include "../libft.h"
+#define BONUS
+#undef NOTMY
+#define JUSTMY
+#define PRINTF
 
 int	bad_alloc(int ret);
 int	segfault_expected(int ret);
@@ -53,21 +57,29 @@ void	ft_split_test(void);
 void	ft_itoa_test(void);
 void	ft_striteri_test(void);
 void	ft_strmapi_test(void);
+#ifdef NOTMY
 void	ft_putchar_fd_test(void);
 void	ft_putstr_fd_test(void);
 void	ft_putendl_fd_test(void);
 void	ft_putnbr_fd_test(void);
+#endif
+#ifdef BONUS
 void	ft_lstnew_test(void);
 void	ft_lstsize_test(void);
 void	ft_lstadd_front_test(void);
 void	ft_lstclear_test(void);
-void	ft_lst_generate_test(void);
 void	ft_lstlast_test(void);
 void	ft_lstadd_back_test(void);
 void	ft_lstdelone_test(void);
 void	ft_lstmap_test(void);
 void	ft_lstiter_test(void);
+#endif
+#ifdef JUSTMY
+void	ft_lst_generate_test(void);
 void	ft_lltoa_base_test(void);
 void	ft_ulltoa_base_test(void);
+#endif
+#ifdef PRINTF
 void	ft_printf_test(void);
+#endif
 #endif
